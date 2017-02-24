@@ -24,15 +24,19 @@ private StringBuffer verificationErrors = new StringBuffer();
 // URL OF GECKODRIVER
 System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\QA\\Selenium_tools\\geckodriver.exe" );
  driver = new FirefoxDriver();
- baseUrl = "http://localhost:4200";
+ baseUrl = "http://qa.streame.com";
  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
  }
 
  @Test
   public void test() throws Exception {
   driver.get(baseUrl + "/playground");
-  Thread.sleep(5000);
+  Thread.sleep(2000);
+  Alert alert=driver.switchTo().alert();
+  driver.switchTo().alert().sendKeys("v*2$5X0e41US");
+  alert.accept();
   assertTrue(isElementPresent(By.cssSelector("img[alt=\"Streame logo\"]")));
+  Thread.sleep(2000);
   assertTrue(isElementPresent(By.linkText("DISCOVER")));
   assertEquals(driver.findElement(By.linkText("DISCOVER")).getText(), "DISCOVER");
   assertTrue(isElementPresent(By.id("navbar-comp__langMenu")));
