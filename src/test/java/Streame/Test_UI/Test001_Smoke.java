@@ -32,6 +32,7 @@ System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\Q
   public void test() throws Exception {
   driver.get(baseUrl + "/playground");
   Thread.sleep(2000);
+  //Security  password
   Alert alert=driver.switchTo().alert();
   driver.switchTo().alert().sendKeys("v*2$5X0e41US");
   alert.accept();
