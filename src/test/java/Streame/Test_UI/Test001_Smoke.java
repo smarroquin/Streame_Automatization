@@ -29,7 +29,7 @@ System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\Q
  }
 
  @Test
-  public void test() throws Exception {
+  public void Smoke() throws Exception {
   driver.get(baseUrl + "/playground");
   Thread.sleep(2000);
   //Security  password
