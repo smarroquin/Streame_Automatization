@@ -175,7 +175,7 @@ public class Test002_Register {
 		    driver.findElement(By.id("register-comp__confirm-password")).sendKeys("Pruebas01$");
 		    assertFalse(isElementPresent(By.cssSelector("div.alert.alert-danger")));
 	  }
-	  //Register Validations Messages
+	  //Register Validations Messages (Pending)
 	  @Test
 	  public void Create_Account_Validation_Message() throws Exception{
 		    driver.get(baseUrl + "/playground");

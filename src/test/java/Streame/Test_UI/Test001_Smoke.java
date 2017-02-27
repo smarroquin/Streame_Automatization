@@ -27,7 +27,7 @@ System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\Q
  baseUrl = "http://qa.streame.com";
  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
  }
-
+//Login + Registration 
  @Test
   public void Smoke() throws Exception {
   driver.get(baseUrl + "/playground");
