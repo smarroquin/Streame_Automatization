@@ -1,4 +1,4 @@
-package Streame.Test_UI;
+package Streame.Firefox;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
