@@ -1,4 +1,4 @@
-package Streame.Test_UI;
+package Streame.Firefox;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -10,7 +10,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Test002_Register {
+public class Test002_Create_Account {
 
 	  private WebDriver driver;
 	  private String baseUrl;
@@ -60,8 +60,8 @@ public class Test002_Register {
 	      assertTrue(isElementPresent(By.id("register-comp__address")));
 	      assertTrue(isElementPresent(By.id("register-comp__country")));
 	      assertTrue(isElementPresent(By.id("register-comp__city")));
-	      driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN);
-	      driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN);
+	      //driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN);
+	      //driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN);
 	      assertTrue(isElementPresent(By.id("register-comp__zipcode")));
 	      assertTrue(isElementPresent(By.cssSelector("span.make-drag-overlay.avatar-inherit")));
 	      assertTrue(isElementPresent(By.id("register-comp__password")));
@@ -90,9 +90,17 @@ public class Test002_Register {
 		    driver.findElement(By.id("register-comp__email")).sendKeys("denissita1401@hotmail.com");
 		    driver.findElement(By.cssSelector("i.fa.fa-calendar")).click();
 		    //DatePicker
-		    driver.findElement(By.name("dp")).clear();
-		    driver.findElement(By.name("dp")).sendKeys("1985-11-03");
-		    driver.findElement(By.cssSelector("div.input-group-addon")).click();
+		    Thread.sleep(1000);
+		    //Select Year
+		    driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div/ngb-datepicker-navigation/ngb-datepicker-navigation-select/select[2]")).click();
+		    assertTrue(isElementPresent(By.cssSelector("option[value=\"1986\"]")));
+		    driver.findElement(By.cssSelector("option[value=\"1986\"]")).click();
+		    //Select Month
+		    driver.findElement(By.cssSelector("select.custom-select.d-inline-block")).click();
+		    assertTrue(isElementPresent(By.cssSelector("option[value=\"2\"]")));
+		    driver.findElement(By.cssSelector("option[value=\"2\"]")).click();
+		    //Select Day
+		    driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div[2]/div/ngb-datepicker-month-view/div[2]/div[6]/div")).click();
 		    Thread.sleep(1000);
 		    driver.findElement(By.id("register-comp__gender-1")).click();
 		    driver.findElement(By.id("register-comp__display-name")).clear();
@@ -133,9 +141,17 @@ public class Test002_Register {
 		    driver.findElement(By.id("register-comp__email")).sendKeys("denissita1401@hotmail.com");
 		    driver.findElement(By.cssSelector("i.fa.fa-calendar")).click();
 		    //DatePicker
-		    driver.findElement(By.name("dp")).clear();
-		    driver.findElement(By.name("dp")).sendKeys("1985-11-03");
-		    driver.findElement(By.cssSelector("div.input-group-addon")).click();
+		    Thread.sleep(1000);
+		    //Select Year
+		    driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div/ngb-datepicker-navigation/ngb-datepicker-navigation-select/select[2]")).click();
+		    assertTrue(isElementPresent(By.cssSelector("option[value=\"1986\"]")));
+		    driver.findElement(By.cssSelector("option[value=\"1986\"]")).click();
+		    //Select Month
+		    driver.findElement(By.cssSelector("select.custom-select.d-inline-block")).click();
+		    assertTrue(isElementPresent(By.cssSelector("option[value=\"2\"]")));
+		    driver.findElement(By.cssSelector("option[value=\"2\"]")).click();
+		    //Select Day
+		    driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div[2]/div/ngb-datepicker-month-view/div[2]/div[6]/div")).click();
 		    Thread.sleep(1000);
 		    driver.findElement(By.id("register-comp__gender-1")).click();
 		    driver.findElement(By.id("register-comp__display-name")).clear();
@@ -186,8 +202,120 @@ public class Test002_Register {
 	        alert.accept();
 	        Thread.sleep(2000);
 	        driver.findElement(By.cssSelector("option[value=\"en\"]")).click(); 
+	        Thread.sleep(5000);
+	        driver.findElement(By.id("navbar-comp__register-link")).click();
 	        Thread.sleep(2000);
+	        assertTrue(isElementPresent(By.id("register-comp")));
+	        driver.findElement(By.id("register-comp__first-name")).click();
+	        driver.findElement(By.id("register-comp__last-name")).click();
+	        assertTrue(isElementPresent(By.cssSelector("div.alert.alert-danger")));
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "First Name is required for registration");
+	        //First Name Validation
+	        driver.findElement(By.id("register-comp__first-name")).clear();
+	        driver.findElement(By.id("register-comp__first-name")).sendKeys("111111111111111111111");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "First Name can only contain lowercase characters");        
+	        driver.findElement(By.id("register-comp__first-name")).clear();
+	        driver.findElement(By.id("register-comp__first-name")).sendKeys("#$%!&/");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "First Name can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__first-name")).clear();
+	        driver.findElement(By.id("register-comp__first-name")).sendKeys("DENISSE");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "First Name can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__first-name")).clear();
+	        driver.findElement(By.id("register-comp__first-name")).sendKeys("Denisse");
+	        driver.findElement(By.id("register-comp__first-name")).clear();
+	        driver.findElement(By.id("register-comp__first-name")).sendKeys("Denisse Silvia");
+	        assertTrue(isElementPresent(By.cssSelector("div.alert.alert-danger")));
+	        //Last Name Validation
+	        driver.findElement(By.id("register-comp__email")).click();
+	        assertTrue(isElementPresent(By.xpath("//div[@id='register-comp']/form/div[2]/div/div")));
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[2]/div/div")).getText(), "Last Name is required for registration");
+	        driver.findElement(By.id("register-comp__last-name")).clear();
+	        driver.findElement(By.id("register-comp__last-name")).sendKeys("2222222222222222");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Last Name can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__last-name")).clear();
+	        driver.findElement(By.id("register-comp__last-name")).sendKeys("#!$%&/)(=");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Last Name can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__last-name")).clear();
+	        driver.findElement(By.id("register-comp__last-name")).sendKeys("MARROQUIN");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Last Name can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__last-name")).clear();
+	        driver.findElement(By.id("register-comp__last-name")).sendKeys("Marroquin");
+	        driver.findElement(By.id("register-comp__last-name")).clear();
+	        driver.findElement(By.id("register-comp__last-name")).sendKeys("Marroquin Alcalde");
+	        //Email Name Validation
+	        driver.findElement(By.id("register-comp__display-name")).click();
+	        assertTrue(isElementPresent(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")));
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")).getText(), "Email is required for registration");
+	        driver.findElement(By.id("register-comp__email")).clear();
+	        driver.findElement(By.id("register-comp__email")).sendKeys("1111111111111111111111");
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")).getText(), "Please enter a valid email");
+	        driver.findElement(By.id("register-comp__email")).clear();
+	        driver.findElement(By.id("register-comp__email")).sendKeys("##############");
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")).getText(), "Please enter a valid email");
+	        driver.findElement(By.id("register-comp__email")).clear();
+	        driver.findElement(By.id("register-comp__email")).sendKeys("@gmail.com");
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")).getText(), "Please enter a valid email");
+	        driver.findElement(By.id("register-comp__email")).clear();
+	        driver.findElement(By.id("register-comp__email")).sendKeys("@gmail");
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")).getText(), "Please enter a valid email");
+	        driver.findElement(By.id("register-comp__email")).clear();
+	        driver.findElement(By.id("register-comp__email")).sendKeys("dmarroquin");
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")).getText(), "Please enter a valid email");
+	        driver.findElement(By.id("register-comp__email")).clear();
+	        driver.findElement(By.id("register-comp__email")).sendKeys("dmarroquin.mail.com");
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")).getText(), "Please enter a valid email");
+	        driver.findElement(By.id("register-comp__email")).clear();
+	        driver.findElement(By.id("register-comp__email")).sendKeys("dmarroquin@mail.com");
+	        driver.findElement(By.id("register-comp__email")).clear();
+	        driver.findElement(By.id("register-comp__email")).sendKeys("dmarroquin12@mail.com");
+	        assertFalse(isElementPresent(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")));
+	        //Display Name Validation
+	        driver.findElement(By.id("register-comp__url")).click();
+	        assertTrue(isElementPresent(By.xpath("//div[@id='register-comp']/form/div[6]/div/div")));
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[6]/div/div")).getText(), "Display Name is required for registration");
+	        driver.findElement(By.id("register-comp__display-name")).clear();
+	        driver.findElement(By.id("register-comp__display-name")).sendKeys("11111111111111111");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Display Name can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__display-name")).clear();
+	        driver.findElement(By.id("register-comp__display-name")).sendKeys("#$##\"$#\"$#\"$\"$\"#$");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Display Name can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__display-name")).clear();
+	        driver.findElement(By.id("register-comp__display-name")).sendKeys("DENISSEEE");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Display Name can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__display-name")).clear();
+	        driver.findElement(By.id("register-comp__display-name")).sendKeys("Denisse20");
+	        driver.findElement(By.id("register-comp__display-name")).clear();
+	        driver.findElement(By.id("register-comp__display-name")).sendKeys("Denisse20$");
+	        driver.findElement(By.id("register-comp__display-name")).clear();
+	        driver.findElement(By.id("register-comp__display-name")).sendKeys("denisse20");
+	        driver.findElement(By.id("register-comp__display-name")).clear();
+	        driver.findElement(By.id("register-comp__display-name")).sendKeys("Denisse");
+	        //URL Name Validation
+	        driver.findElement(By.id("register-comp__address")).click();
+	        assertTrue(isElementPresent(By.xpath("//div[@id='register-comp']/form/div[7]/div/div")));
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[7]/div/div")).getText(), "URL is required for registration");
+	        driver.findElement(By.id("register-comp__url")).clear();
+	        driver.findElement(By.id("register-comp__url")).sendKeys("1111111111111111111111");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "URL can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__url")).clear();
+	        driver.findElement(By.id("register-comp__url")).sendKeys("#$!#$#&/#");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "URL can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__url")).clear();
+	        driver.findElement(By.id("register-comp__url")).sendKeys("DENISSE20");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "URL can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__url")).clear();
+	        driver.findElement(By.id("register-comp__url")).sendKeys("DENISSE");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "URL can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__url")).clear();
+	        driver.findElement(By.id("register-comp__url")).sendKeys("DENISSE20$");
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "URL can only contain lowercase characters");
+	        driver.findElement(By.id("register-comp__url")).clear();
+	        driver.findElement(By.id("register-comp__url")).sendKeys("Denisse20");
+	        assertFalse(isElementPresent(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")));
+	        assertFalse(isElementPresent(By.cssSelector("div.alert.alert-danger")));
+	        
 	  }
+	
 	  ////REQUIRED CLASS FOR UPLOAD IMAGE
 	  //StringSelection class used for copy and paste operations.
 	  public static void setClipBoardData(String string){

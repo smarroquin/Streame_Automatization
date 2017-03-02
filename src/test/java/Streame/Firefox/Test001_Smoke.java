@@ -1,15 +1,16 @@
-package Streame.Test_UI;
+package Streame.Firefox;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
-
 import junit.framework.Assert;
-
 import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.safari.SafariDriver;
+
+
 
 public class Test001_Smoke {
 	  
@@ -30,7 +31,7 @@ System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\Q
 //Login + Registration 
  @Test
   public void Smoke() throws Exception {
-  driver.get(baseUrl + "/playground");
+	 driver.get(baseUrl + "/playground");
   Thread.sleep(2000);
   //Security  password
   Alert alert=driver.switchTo().alert();
@@ -46,7 +47,7 @@ System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\Q
   assertTrue(isElementPresent(By.cssSelector("option[value=\"es\"]")));
   assertEquals(driver.findElement(By.cssSelector("option[value=\"es\"]")).getText(), "es");
   assertTrue(isElementPresent(By.id("navbar-comp__login-link")));
-  assertEquals(driver.findElement(By.id("navbar-comp__login-link")).getText(), "LOGIN");
+  assertEquals(driver.findElement(By.id("navbar-comp__login-link")).getText(), "INGRESAR");
   assertTrue(isElementPresent(By.id("navbar-comp__register-link")));
   assertEquals(driver.findElement(By.id("navbar-comp__register-link")).getText(), "CREAR CUENTA");
   assertTrue(isElementPresent(By.cssSelector("img[alt=\"LeeHowell.jpg\"]")));
@@ -127,7 +128,7 @@ System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\Q
 
  @AfterClass(alwaysRun = true)
  public void tearDown() throws Exception {
- driver.quit();
+	 driver.quit();
  String verificationErrorString = verificationErrors.toString();
  if (!"".equals(verificationErrorString)) {
  fail(verificationErrorString);
@@ -136,7 +137,7 @@ System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\Q
 	
  private boolean isElementPresent(By by) {
 	    try {
-	      driver.findElement(by);
+	    	driver.findElement(by);
 	      return true;
 	    } catch (NoSuchElementException e) {
 	      return false;
@@ -145,7 +146,7 @@ System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\Q
 
  private boolean isAlertPresent() {
 	    try {
-	      driver.switchTo().alert();
+	    	driver.switchTo().alert();
 	      return true;
 	    } catch (NoAlertPresentException e) {
 	      return false;
