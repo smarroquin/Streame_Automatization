@@ -24,7 +24,7 @@ public class Test002_Create_Account {
 	    baseUrl = "http://qa.streame.com";
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
-	  //Register only look and feel  
+	  //Look and feel  
 	  @Test
 	  public void Create_Account_Look_Feel() throws Exception {
 	      driver.get(baseUrl + "/playground");
@@ -70,7 +70,7 @@ public class Test002_Create_Account {
 	      driver.findElement(By.cssSelector("button.close")).click();
 	      assertTrue(isElementPresent(By.id("navbarSupportedContent")));
 	    }
-	  //Register successfully without image
+	  //Successfully without image
 	  @Test
 	  public void Create_Account_Successfully_WO_Image() throws Exception {
 		    driver.get(baseUrl + "/playground");
@@ -121,7 +121,7 @@ public class Test002_Create_Account {
 		    driver.findElement(By.id("register-comp__confirm-password")).sendKeys("Pruebas01$");
 		    assertFalse(isElementPresent(By.cssSelector("div.alert.alert-danger")));
 	  }
-	  //Register successfully with image
+	  //Successfully with image
 	  @Test
 	  public void Create_Account_Successfully_W_Image() throws Exception {
 		    driver.get(baseUrl + "/playground");
@@ -191,7 +191,7 @@ public class Test002_Create_Account {
 		    driver.findElement(By.id("register-comp__confirm-password")).sendKeys("Pruebas01$");
 		    assertFalse(isElementPresent(By.cssSelector("div.alert.alert-danger")));
 	  }
-	  //Register Validations Messages (Pending)
+	  //Validations Messages (Pending)
 	  @Test
 	  public void Create_Account_Validation_Message() throws Exception{
 		    driver.get(baseUrl + "/playground");
@@ -315,7 +315,58 @@ public class Test002_Create_Account {
 	        assertFalse(isElementPresent(By.cssSelector("div.alert.alert-danger")));
 	        
 	  }
-	
+	  //Validation Of previous account
+	  @Test
+	  public void Create_Account_Failed() throws Exception{
+		    driver.get(baseUrl + "/playground");
+		    Thread.sleep(2000);
+	        //Security  password
+	        Alert alert=driver.switchTo().alert();
+	        driver.switchTo().alert().sendKeys("v*2$5X0e41US");
+	        alert.accept();
+	        Thread.sleep(2000);
+	        driver.findElement(By.cssSelector("option[value=\"en\"]")).click(); 
+	        Thread.sleep(5000);
+	        driver.findElement(By.id("navbar-comp__register-link")).click();
+	        Thread.sleep(2000);
+	        assertTrue(isElementPresent(By.id("register-comp")));  
+	        driver.findElement(By.id("register-comp__first-name")).clear();
+	        driver.findElement(By.id("register-comp__first-name")).sendKeys("Denisse");
+	        driver.findElement(By.id("register-comp__last-name")).clear();
+	        driver.findElement(By.id("register-comp__last-name")).sendKeys("Marroquin");
+	        driver.findElement(By.id("register-comp__email")).clear();
+	        driver.findElement(By.id("register-comp__email")).sendKeys("silvia.marroquin@gmail.com");
+	        driver.findElement(By.cssSelector("div.input-group-addon")).click();
+	        //DatePicker
+		    Thread.sleep(1000);
+		    //Select Year
+		    driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div/ngb-datepicker-navigation/ngb-datepicker-navigation-select/select[2]")).click();
+		    assertTrue(isElementPresent(By.cssSelector("option[value=\"1986\"]")));
+		    driver.findElement(By.cssSelector("option[value=\"1986\"]")).click();
+		    //Select Month
+		    driver.findElement(By.cssSelector("select.custom-select.d-inline-block")).click();
+		    assertTrue(isElementPresent(By.cssSelector("option[value=\"9\"]")));
+		    driver.findElement(By.cssSelector("option[value=\"9\"]")).click();
+		    //Select Day
+		    driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div[2]/div/ngb-datepicker-month-view/div[2]/div[6]/div")).click();
+		    Thread.sleep(1000);
+	        driver.findElement(By.id("register-comp__gender-1")).click();
+	        driver.findElement(By.id("register-comp__gender-1")).isSelected();
+	        driver.findElement(By.id("register-comp__display-name")).clear();
+	        driver.findElement(By.id("register-comp__display-name")).sendKeys("Denissita30");
+	        driver.findElement(By.id("register-comp__url")).clear();
+	        driver.findElement(By.id("register-comp__url")).sendKeys("Denissita30");
+	        driver.findElement(By.id("register-comp__address")).clear();
+	        driver.findElement(By.id("register-comp__address")).sendKeys("calle");
+	        driver.findElement(By.id("register-comp__password")).clear();
+	        driver.findElement(By.id("register-comp__password")).sendKeys("Deni1402$");
+	        driver.findElement(By.id("register-comp__confirm-password")).clear();
+	        driver.findElement(By.id("register-comp__confirm-password")).sendKeys("Deni1402$");
+	        assertTrue(isElementPresent(By.cssSelector("div.alert.alert-danger")));
+	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Email is taken");
+	        assertTrue(isElementPresent(By.xpath("//div[@id='register-comp']/form/div[7]/div/div")));
+	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[7]/div/div")).getText(), "URL is taken");
+	       	  }
 	  ////REQUIRED CLASS FOR UPLOAD IMAGE
 	  //StringSelection class used for copy and paste operations.
 	  public static void setClipBoardData(String string){

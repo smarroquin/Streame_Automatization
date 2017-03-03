@@ -118,8 +118,8 @@ System.setProperty("webdriver.chrome.driver","C:\\Users\\dmarroquin\\Documents\\
   assertTrue(isElementPresent(By.id("register-comp__city")));
   assertTrue(isElementPresent(By.id("register-comp__zipcode")));
   assertTrue(isElementPresent(By.cssSelector("span.make-drag-overlay.avatar-inherit")));
-  driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN); 
-  driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN); 
+  //driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN); 
+  //driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN); 
   assertTrue(isElementPresent(By.id("register-comp__password")));
   assertTrue(isElementPresent(By.id("register-comp__confirm-password")));
   driver.findElement(By.id("register-comp__confirm-password")).click();
