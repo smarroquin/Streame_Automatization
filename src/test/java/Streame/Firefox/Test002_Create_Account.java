@@ -25,7 +25,7 @@ public class Test002_Create_Account {
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
 	  //Look and feel  
-	  @Test
+	  @Test(priority=1)
 	  public void Create_Account_Look_Feel() throws Exception {
 	      driver.get(baseUrl + "/playground");
 	      Thread.sleep(2000);
@@ -69,17 +69,18 @@ public class Test002_Create_Account {
 	      assertTrue(isElementPresent(By.cssSelector("button.close")));
 	      driver.findElement(By.cssSelector("button.close")).click();
 	      assertTrue(isElementPresent(By.id("navbarSupportedContent")));
+	  
 	    }
 	  //Successfully without image
-	  @Test
+	  @Test(priority=4)
 	  public void Create_Account_Successfully_WO_Image() throws Exception {
 		    driver.get(baseUrl + "/playground");
 		    Thread.sleep(2000);
 	        //Security  password
-	        Alert alert=driver.switchTo().alert();
+	        /*Alert alert=driver.switchTo().alert();
 	        driver.switchTo().alert().sendKeys("v*2$5X0e41US");
 	        alert.accept();
-	        Thread.sleep(2000);
+	        Thread.sleep(2000);*/
 	        driver.findElement(By.cssSelector("option[value=\"en\"]")).click();
 		    driver.findElement(By.id("navbar-comp__register-link")).click();
 		    driver.findElement(By.id("register-comp__first-name")).clear();
@@ -120,17 +121,17 @@ public class Test002_Create_Account {
 		    driver.findElement(By.id("register-comp__confirm-password")).clear();
 		    driver.findElement(By.id("register-comp__confirm-password")).sendKeys("Pruebas01$");
 		    assertFalse(isElementPresent(By.cssSelector("div.alert.alert-danger")));
-	  }
+		      }
 	  //Successfully with image
-	  @Test
+	  @Test(priority=5)
 	  public void Create_Account_Successfully_W_Image() throws Exception {
 		    driver.get(baseUrl + "/playground");
 		    Thread.sleep(2000);
 	        //Security  password
-	        Alert alert=driver.switchTo().alert();
+	        /*Alert alert=driver.switchTo().alert();
 	        driver.switchTo().alert().sendKeys("v*2$5X0e41US");
 	        alert.accept();
-	        Thread.sleep(2000);
+	        Thread.sleep(2000);*/
 	        driver.findElement(By.cssSelector("option[value=\"en\"]")).click();
 		    driver.findElement(By.id("navbar-comp__register-link")).click();
 		    driver.findElement(By.id("register-comp__first-name")).clear();
@@ -173,6 +174,7 @@ public class Test002_Create_Account {
 		    uploadImage("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\IMG_20160601_091341.jpg");
 		    Thread.sleep(500);
 		    driver.switchTo().activeElement();
+		    Thread.sleep(500);
 		    assertTrue(isElementPresent(By.cssSelector("cropper-modal > div.container > div.modal-header")));
 		    assertEquals(driver.findElement(By.cssSelector("h4.modal-title")).getText(), "Recortar la imagen");
 		    assertTrue(isElementPresent(By.cssSelector("canvas")));
@@ -190,17 +192,18 @@ public class Test002_Create_Account {
 		    driver.findElement(By.id("register-comp__confirm-password")).clear();
 		    driver.findElement(By.id("register-comp__confirm-password")).sendKeys("Pruebas01$");
 		    assertFalse(isElementPresent(By.cssSelector("div.alert.alert-danger")));
+		   
 	  }
-	  //Validations Messages (Pending)
-	  @Test
+	  //Validations Messages 
+	  @Test(priority=3)
 	  public void Create_Account_Validation_Message() throws Exception{
 		    driver.get(baseUrl + "/playground");
 		    Thread.sleep(2000);
 	        //Security  password
-	        Alert alert=driver.switchTo().alert();
+	        /*Alert alert=driver.switchTo().alert();
 	        driver.switchTo().alert().sendKeys("v*2$5X0e41US");
 	        alert.accept();
-	        Thread.sleep(2000);
+	        Thread.sleep(2000);*/
 	        driver.findElement(By.cssSelector("option[value=\"en\"]")).click(); 
 	        Thread.sleep(5000);
 	        driver.findElement(By.id("navbar-comp__register-link")).click();
@@ -313,18 +316,18 @@ public class Test002_Create_Account {
 	        driver.findElement(By.id("register-comp__url")).sendKeys("Denisse20");
 	        assertFalse(isElementPresent(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")));
 	        assertFalse(isElementPresent(By.cssSelector("div.alert.alert-danger")));
-	        
+	        	        
 	  }
 	  //Validation Of previous account
-	  @Test
+	  @Test(priority=2)
 	  public void Create_Account_Failed() throws Exception{
 		    driver.get(baseUrl + "/playground");
 		    Thread.sleep(2000);
 	        //Security  password
-	        Alert alert=driver.switchTo().alert();
+	        /*Alert alert=driver.switchTo().alert();
 	        driver.switchTo().alert().sendKeys("v*2$5X0e41US");
 	        alert.accept();
-	        Thread.sleep(2000);
+	        Thread.sleep(2000);*/
 	        driver.findElement(By.cssSelector("option[value=\"en\"]")).click(); 
 	        Thread.sleep(5000);
 	        driver.findElement(By.id("navbar-comp__register-link")).click();
@@ -366,7 +369,9 @@ public class Test002_Create_Account {
 	        assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Email is taken");
 	        assertTrue(isElementPresent(By.xpath("//div[@id='register-comp']/form/div[7]/div/div")));
 	        assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[7]/div/div")).getText(), "URL is taken");
-	       	  }
+	        driver.findElement(By.cssSelector("button.close"));
+	      	  
+	  }
 	  ////REQUIRED CLASS FOR UPLOAD IMAGE
 	  //StringSelection class used for copy and paste operations.
 	  public static void setClipBoardData(String string){
