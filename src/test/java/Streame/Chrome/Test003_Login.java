@@ -1,4 +1,4 @@
-package Streame.Firefox;
+package Streame.Chrome;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -7,7 +7,7 @@ import java.awt.datatransfer.*;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
 
@@ -20,8 +20,8 @@ public class Test003_Login {
 	  
 	  @BeforeClass(alwaysRun = true)
 	  public void setUp() throws Exception {
-		System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\QA\\Selenium_tools\\geckodriver.exe" );
-	    driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\dmarroquin\\Documents\\QA\\Selenium_tools\\chromedriver.exe");
+	    driver = new ChromeDriver();
 	    baseUrl = "http://qa.streame.com";
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
