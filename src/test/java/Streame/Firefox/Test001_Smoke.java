@@ -8,7 +8,7 @@ import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.safari.SafariDriver;
+
 
 public class Test001_Smoke {
 	  
