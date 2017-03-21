@@ -9,7 +9,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-
 public class Test001_Smoke {
 	  
 private WebDriver driver;
@@ -104,17 +103,21 @@ System.setProperty("webdriver.gecko.driver","C:\\Users\\dmarroquin\\Documents\\Q
   assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[5]/div/div/div[2]/label")).getText(), "Female");
   assertTrue(isElementPresent(By.id("register-comp__display-name")));
   driver.findElement(By.id("register-comp__display-name")).click();
+  assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/div")).getText(), "Date of Birth is required");
+  assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[5]/div/div[2]")).getText(), "Gender is required");
   driver.findElement(By.id("register-comp__url")).click();
   assertTrue(isElementPresent(By.cssSelector("div.alert.alert-danger")));
-  assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[6]/div/div")).getText(), "Display Name is required");
+  assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[6]/div/div")).getText(), "Display Name must be between 3 and 35 characters");
   assertTrue(isElementPresent(By.id("register-comp__url")));
   driver.findElement(By.id("register-comp__address")).click();
   Thread.sleep(2000);
   assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[7]/div/div")).getText(), "Handle is required");
   assertTrue(isElementPresent(By.id("register-comp__address")));
-  assertTrue(isElementPresent(By.id("register-comp__country")));
+  //Hidden fields
+  /*assertTrue(isElementPresent(By.id("register-comp__country")));
   assertTrue(isElementPresent(By.id("register-comp__city")));
   assertTrue(isElementPresent(By.id("register-comp__zipcode")));
+  */
   assertTrue(isElementPresent(By.cssSelector("span.make-drag-overlay.avatar-inherit")));
   driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN); 
   driver.findElement(By.id("register-comp")).sendKeys(Keys.ARROW_DOWN); 
