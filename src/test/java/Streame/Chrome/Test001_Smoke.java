@@ -8,8 +8,6 @@ import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.safari.SafariDriver;
-
 
 
 public class Test001_Smoke {
@@ -38,24 +36,20 @@ System.setProperty("webdriver.chrome.driver","C:\\Users\\dmarroquin\\Documents\\
   driver.switchTo().alert().sendKeys("v*2$5X0e41US");
   alert.accept();
   assertTrue(isElementPresent(By.cssSelector("img[alt=\"Streame logo\"]")));
-  Thread.sleep(2000);
+  Thread.sleep(3000);
   assertTrue(isElementPresent(By.linkText("DISCOVER")));
   assertEquals(driver.findElement(By.linkText("DISCOVER")).getText(), "DISCOVER");
   assertTrue(isElementPresent(By.id("navbar-comp__langMenu")));
   assertTrue(isElementPresent(By.cssSelector("option[value=\"en\"]")));
-  //assertEquals(driver.findElement(By.cssSelector("option[value=\"en\"]")).getText(),"en");
   assertTrue(isElementPresent(By.cssSelector("option[value=\"es\"]")));
-  //assertEquals(driver.findElement(By.cssSelector("option[value=\"es\"]")).getText(),"es");
   assertTrue(isElementPresent(By.id("navbar-comp__login-link")));
   assertEquals(driver.findElement(By.id("navbar-comp__login-link")).getText(), "SIGN IN");
   assertTrue(isElementPresent(By.id("navbar-comp__register-link")));
   assertEquals(driver.findElement(By.id("navbar-comp__register-link")).getText(), "CREATE ACCOUNT");
   assertTrue(isElementPresent(By.cssSelector("img[alt=\"LeeHowell.jpg\"]")));
-  assertEquals(driver.findElement(By.cssSelector("h1.col-sm-12.favorites-title")).getText(), "My Latest Favorites");
+  assertEquals(driver.findElement(By.cssSelector("h1.col-sm-12.home-page-favorites-title")).getText(), "My Latest Favorites");
   driver.findElement(By.cssSelector("option[value=\"en\"]")).click();
   Thread.sleep(1000);
-  /*assertEquals(driver.findElement(By.id("navbar-comp__login-link")).getText(), "INGRESAR");
-  assertEquals(driver.findElement(By.id("navbar-comp__register-link")).getText(), "CREAR CUENTA");*/
   //Login
   driver.findElement(By.id("navbar-comp__login-link")).click();
   Thread.sleep(4000);
