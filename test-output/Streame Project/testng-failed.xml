@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Streame Project]">
+  <parameter name="appURL" value="http://qa.streame.com"/>
+  <parameter name="browserType" value="chrome"/>
+  <test name="Au_Test(failed)">
+    <classes>
+      <class name="com.streame.tests.HomePageTest">
+        <methods>
+          <include name="verifyNavES"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="initializeTestBaseSetup"/>
+        </methods>
+      </class> <!-- com.streame.tests.HomePageTest -->
+    </classes>
+  </test> <!-- Au_Test(failed) -->
+</suite> <!-- Failed suite [Streame Project] -->
