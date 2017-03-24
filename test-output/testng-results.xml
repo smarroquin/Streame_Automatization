@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="284213" started-at="2017-03-23T20:26:26Z" finished-at="2017-03-23T20:31:10Z">
+  <suite name="Streame Project" duration-ms="22763" started-at="2017-03-24T16:42:09Z" finished-at="2017-03-24T16:42:31Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="284213" started-at="2017-03-23T20:26:26Z" finished-at="2017-03-23T20:31:10Z">
-      <class name="Streame.Chrome.Test001_Smoke">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:Streame.Chrome.Test001_Smoke@59f99ea]" name="setUp" is-config="true" duration-ms="4358" started-at="2017-03-23T15:26:26Z" finished-at="2017-03-23T15:26:30Z">
+    <test name="Au_Test" duration-ms="22763" started-at="2017-03-24T16:42:09Z" finished-at="2017-03-24T16:42:31Z">
+      <class name="com.streame.tests.HomePageTest">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.streame.tests.HomePageTest@26653222]" name="initializeTestBaseSetup" is-config="true" duration-ms="7215" started-at="2017-03-24T11:42:09Z" finished-at="2017-03-24T11:42:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[http://qa.streame.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeTestBaseSetup -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.streame.tests.HomePageTest@26653222]" name="setUp" is-config="true" duration-ms="0" started-at="2017-03-24T11:42:16Z" finished-at="2017-03-24T11:42:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="Smoke()[pri:0, instance:Streame.Chrome.Test001_Smoke@59f99ea]" name="Smoke" duration-ms="278898" started-at="2017-03-23T15:26:30Z" finished-at="2017-03-23T15:31:09Z">
+        <test-method status="PASS" signature="verifyLoadHomePage()[pri:1, instance:com.streame.tests.HomePageTest@26653222]" name="verifyLoadHomePage" duration-ms="7066" started-at="2017-03-24T11:42:16Z" finished-at="2017-03-24T11:42:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Smoke -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Streame.Chrome.Test001_Smoke@59f99ea]" name="tearDown" is-config="true" duration-ms="956" started-at="2017-03-23T15:31:09Z" finished-at="2017-03-23T15:31:10Z">
+        </test-method> <!-- verifyLoadHomePage -->
+        <test-method status="PASS" signature="verifyNavEN()[pri:2, instance:com.streame.tests.HomePageTest@26653222]" name="verifyNavEN" duration-ms="2277" started-at="2017-03-24T11:42:23Z" finished-at="2017-03-24T11:42:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyNavEN -->
+        <test-method status="PASS" signature="verifyNavES()[pri:3, instance:com.streame.tests.HomePageTest@26653222]" name="verifyNavES" duration-ms="5275" started-at="2017-03-24T11:42:25Z" finished-at="2017-03-24T11:42:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyNavES -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.streame.tests.HomePageTest@26653222]" name="tearDown" is-config="true" duration-ms="905" started-at="2017-03-24T11:42:30Z" finished-at="2017-03-24T11:42:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- Streame.Chrome.Test001_Smoke -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.streame.tests.HomePageTest -->
+    </test> <!-- Au_Test -->
+  </suite> <!-- Streame Project -->
 </testng-results>

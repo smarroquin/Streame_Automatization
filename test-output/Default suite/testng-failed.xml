@@ -3,13 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="Streame.Chrome.Test001_Smoke">
+      <class name="com.streame.tests.HomePageTest">
         <methods>
-          <include name="Smoke"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
+          <include name="verifyHomePage"/>
         </methods>
-      </class> <!-- Streame.Chrome.Test001_Smoke -->
+      </class> <!-- com.streame.tests.HomePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

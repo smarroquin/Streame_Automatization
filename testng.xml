@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Streame Project">
+    <parameter name="appURL" value="http://qa.streame.com"/>
+    <parameter name="browserType" value="chrome"/>
+  <test name="Au_Test">
+    <classes>
+      <class name="com.streame.tests.HomePageTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
