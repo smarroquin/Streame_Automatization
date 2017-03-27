@@ -1,5 +1,6 @@
 package com.streame.tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -21,15 +22,58 @@ public class SignInPageTest extends Setup{
 		driver=getDriver();
 	}
 		
-	@Test
-	public void verifySignInFunction() {
-		System.out.println("Sign In functionality details...");
+	@Test(priority=1)
+	public void verifySignInEmpty() throws Exception {
+		System.out.println("Sign In without information...");
+		HomePage = new HomePage(driver);
+		HomePage.SecurityPassword();
+		signInPage = HomePage.clickSignIn();
+		Thread.sleep(2000);
+		Assert.assertTrue(signInPage.verifySignInPageTitle(), "Welcome");
+		Assert.assertTrue(signInPage.verifyClosePage(), "x");
+		Assert.assertTrue(HomePage.isElementPresent(By.id("login-comp__username")));
+		Assert.assertTrue(HomePage.isElementPresent(By.id("login-comp__password")));
+		Assert.assertTrue(HomePage.isElementPresent(By.id("login-comp__remember-me")));
+		signInPage.checkRemember();
+		Assert.assertEquals(driver.findElement(By.id("login-comp__remember-me")).getAttribute("value"), "on");
+		Assert.assertEquals(driver.findElement(By.cssSelector("label")).getText(), "Remember me");
+		driver.findElement(By.id("login-comp__password")).click();
+		driver.findElement(By.id("login-comp__username")).click();
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Email address is required");
+	    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='login-comp']/div[2]/form/div[2]/div")).getText(), "Password is required");
+	    driver.findElement(By.id("login_comp__close-button")).click();
+	    Thread.sleep(1000);
+	}
+		
+	@Test(priority=2)
+	public void verifySignInFailed() throws Exception {
+		System.out.println("Sign In failed...");
+		HomePage = new HomePage(driver);
+		Thread.sleep(1000);
+		signInPage = HomePage.clickSignIn();
+		signInPage.verifySignIn();
+		Assert.assertTrue(HomePage.isElementPresent(By.id("login-comp__submit")));
+		driver.findElement(By.id("login-comp__submit")).click();
+		driver.findElement(By.id("login_comp__close-button")).click();
+	    Thread.sleep(1000);
+	}
+	
+	@Test(priority=3)
+	public void verifySignInSucessfully() throws Exception {
+		System.out.println("Sign In sucessfully...");
 		HomePage = new HomePage(driver);
 		signInPage = HomePage.clickSignIn();
-		Assert.assertTrue(signInPage.verifySignInPageTitle(), "Sign In page title doesn't match");
-		Assert.assertTrue(signInPage.verifySignInPageText(), "Page text not matching");
-		Assert.assertTrue(signInPage.verifySignIn(), "Unable to sign in");
-
+		signInPage.verifyValidSignIn();
+		driver.findElement(By.id("login-comp__submit")).click();
+		Thread.sleep(1000);
+		Assert.assertTrue(HomePage.isElementPresent(By.linkText("PLAYGROUND")));
+	    Assert.assertEquals(driver.findElement(By.linkText("PLAYGROUND")).getText(), "PLAYGROUND");
+	    Assert.assertTrue(HomePage.isElementPresent(By.id("navbar-comp__logout-link")));
+	    Assert.assertEquals(driver.findElement(By.id("navbar-comp__logout-link")).getText(), "LOGOUT");
+	    Assert.assertTrue(HomePage.isElementPresent(By.id("buildDropDown")));
+	    Assert.assertEquals(driver.findElement(By.id("buildDropDown")).getText(), "BUILD");
+	    Assert.assertTrue(HomePage.isElementPresent(By.cssSelector("div.profile-image-xs")));
+	    Assert.assertEquals(driver.findElement(By.cssSelector("div.profile-image-xs")).getText(), "");
 	}
 
 }

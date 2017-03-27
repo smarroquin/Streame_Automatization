@@ -2,6 +2,7 @@ package com.streame.pageobjects;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -10,21 +11,21 @@ import org.openqa.selenium.support.ui.Select;
 public class HomePage {
 	
 	protected WebDriver driver;
-	private By signInButton = By.linkText("SIGN IN");
+	private By signInLink = By.linkText("SIGN IN");
 	
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 	}
 	public SignInPage clickSignIn() {
-		System.out.println("clicking on sign in button");
-		WebElement signInBtnElement=driver.findElement(signInButton);
-		if(signInBtnElement.isDisplayed()||signInBtnElement.isEnabled())
-			signInBtnElement.click();
+		System.out.println("sign in...");
+		WebElement signInLinkElement=driver.findElement(signInLink);
+		if(signInLinkElement.isDisplayed()||signInLinkElement.isEnabled())
+			signInLinkElement.click();
 		else System.out.println("Element not found");
 		return new SignInPage(driver);
 	}
-	
+		
 	public void SecurityPassword() {
 		//Security  password
 		  Alert alert=driver.switchTo().alert();
@@ -53,4 +54,14 @@ public class HomePage {
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("option[value=\"es\"]")).click();
 	}
+	public boolean isElementPresent(By by) {
+	    try {
+	    	driver.findElement(by);
+	      return true;
+	    } catch (NoSuchElementException e) {
+	      return false;
+	    }
+	  }
+	
+
 }
