@@ -5,9 +5,7 @@
     <parameter name="browserType" value="chrome"/>
   <test name="Au_Test">
     <classes>
-      <class name="com.streame.tests.HomePageTest"/>
-       <class name="com.streame.tests.SignInPageTest"/>
-      
-    </classes>
+      <class name="com.streame.tests.CreateAccountPageTest"/>
+      </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

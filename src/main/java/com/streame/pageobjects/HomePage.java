@@ -12,7 +12,8 @@ public class HomePage {
 	
 	protected WebDriver driver;
 	private By signInLink = By.linkText("SIGN IN");
-	
+	private By createAccountLink = By.linkText("CREATE ACCOUNT");
+
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -26,6 +27,13 @@ public class HomePage {
 		return new SignInPage(driver);
 	}
 		
+	public CreateAccountPage clickonCreateAnAccount() {
+		WebElement element=driver.findElement(createAccountLink);
+		if(element.isDisplayed()||element.isEnabled())
+			element.click();
+		else System.out.println("Element not found");
+		return new CreateAccountPage(driver);
+}
 	public void SecurityPassword() {
 		//Security  password
 		  Alert alert=driver.switchTo().alert();

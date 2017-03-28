@@ -40,13 +40,7 @@ public class SignInPage {
 		String expectedClosePage = "×";
 		return closePage.contains(expectedClosePage);
 	}
-		public CreateAccountPage clickonCreateAnAccount() {
-			WebElement element=driver.findElement(loginLink);
-			if(element.isDisplayed()||element.isEnabled())
-				element.click();
-			return new CreateAccountPage(driver);
-	}
-		
+			
 		public void verifySignIn() {
 			enterUserName("dmarroquin");
 			enterPassword("Deni1402$");

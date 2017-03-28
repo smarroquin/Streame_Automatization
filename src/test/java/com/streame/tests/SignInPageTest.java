@@ -27,6 +27,7 @@ public class SignInPageTest extends Setup{
 		System.out.println("Sign In without information...");
 		HomePage = new HomePage(driver);
 		HomePage.SecurityPassword();
+		Thread.sleep(1000);
 		signInPage = HomePage.clickSignIn();
 		Thread.sleep(2000);
 		Assert.assertTrue(signInPage.verifySignInPageTitle(), "Welcome");
@@ -55,13 +56,15 @@ public class SignInPageTest extends Setup{
 		Assert.assertTrue(HomePage.isElementPresent(By.id("login-comp__submit")));
 		driver.findElement(By.id("login-comp__submit")).click();
 		driver.findElement(By.id("login_comp__close-button")).click();
-	    Thread.sleep(1000);
+		driver.findElement(By.id("navbarSupportedContent")).click();
+	    Thread.sleep(5000);
 	}
 	
 	@Test(priority=3)
 	public void verifySignInSucessfully() throws Exception {
 		System.out.println("Sign In sucessfully...");
 		HomePage = new HomePage(driver);
+		Thread.sleep(1000);
 		signInPage = HomePage.clickSignIn();
 		signInPage.verifyValidSignIn();
 		driver.findElement(By.id("login-comp__submit")).click();

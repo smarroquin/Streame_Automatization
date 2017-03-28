@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Streame Project" duration-ms="22763" started-at="2017-03-24T16:42:09Z" finished-at="2017-03-24T16:42:31Z">
+  <suite name="Streame Project" duration-ms="33935" started-at="2017-03-28T21:11:56Z" finished-at="2017-03-28T21:12:30Z">
     <groups>
     </groups>
-    <test name="Au_Test" duration-ms="22763" started-at="2017-03-24T16:42:09Z" finished-at="2017-03-24T16:42:31Z">
-      <class name="com.streame.tests.HomePageTest">
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.streame.tests.HomePageTest@26653222]" name="initializeTestBaseSetup" is-config="true" duration-ms="7215" started-at="2017-03-24T11:42:09Z" finished-at="2017-03-24T11:42:16Z">
+    <test name="Au_Test" duration-ms="33935" started-at="2017-03-28T21:11:56Z" finished-at="2017-03-28T21:12:30Z">
+      <class name="com.streame.tests.CreateAccountPageTest">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.streame.tests.CreateAccountPageTest@26653222]" name="initializeTestBaseSetup" is-config="true" duration-ms="7974" started-at="2017-03-28T16:11:56Z" finished-at="2017-03-28T16:12:04Z">
           <params>
             <param index="0">
               <value>
@@ -23,27 +23,39 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.streame.tests.HomePageTest@26653222]" name="setUp" is-config="true" duration-ms="0" started-at="2017-03-24T11:42:16Z" finished-at="2017-03-24T11:42:16Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.streame.tests.CreateAccountPageTest@26653222]" name="setUp" is-config="true" duration-ms="0" started-at="2017-03-28T16:12:04Z" finished-at="2017-03-28T16:12:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyLoadHomePage()[pri:1, instance:com.streame.tests.HomePageTest@26653222]" name="verifyLoadHomePage" duration-ms="7066" started-at="2017-03-24T11:42:16Z" finished-at="2017-03-24T11:42:23Z">
+        <test-method status="PASS" signature="verifyCreateAnAccounPage()[pri:1, instance:com.streame.tests.CreateAccountPageTest@26653222]" name="verifyCreateAnAccounPage" duration-ms="4668" started-at="2017-03-28T16:12:04Z" finished-at="2017-03-28T16:12:08Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoadHomePage -->
-        <test-method status="PASS" signature="verifyNavEN()[pri:2, instance:com.streame.tests.HomePageTest@26653222]" name="verifyNavEN" duration-ms="2277" started-at="2017-03-24T11:42:23Z" finished-at="2017-03-24T11:42:25Z">
+        </test-method> <!-- verifyCreateAnAccounPage -->
+        <test-method status="PASS" signature="verifyValidationsPage()[pri:2, instance:com.streame.tests.CreateAccountPageTest@26653222]" name="verifyValidationsPage" duration-ms="2027" started-at="2017-03-28T16:12:08Z" finished-at="2017-03-28T16:12:10Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyNavEN -->
-        <test-method status="PASS" signature="verifyNavES()[pri:3, instance:com.streame.tests.HomePageTest@26653222]" name="verifyNavES" duration-ms="5275" started-at="2017-03-24T11:42:25Z" finished-at="2017-03-24T11:42:30Z">
+        </test-method> <!-- verifyValidationsPage -->
+        <test-method status="PASS" signature="verifyFirstName()[pri:3, instance:com.streame.tests.CreateAccountPageTest@26653222]" name="verifyFirstName" duration-ms="3460" started-at="2017-03-28T16:12:10Z" finished-at="2017-03-28T16:12:14Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyNavES -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.streame.tests.HomePageTest@26653222]" name="tearDown" is-config="true" duration-ms="905" started-at="2017-03-24T11:42:30Z" finished-at="2017-03-24T11:42:31Z">
+        </test-method> <!-- verifyFirstName -->
+        <test-method status="PASS" signature="verifyLastName()[pri:4, instance:com.streame.tests.CreateAccountPageTest@26653222]" name="verifyLastName" duration-ms="2346" started-at="2017-03-28T16:12:14Z" finished-at="2017-03-28T16:12:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLastName -->
+        <test-method status="PASS" signature="verifyEmail()[pri:5, instance:com.streame.tests.CreateAccountPageTest@26653222]" name="verifyEmail" duration-ms="9135" started-at="2017-03-28T16:12:16Z" finished-at="2017-03-28T16:12:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyEmail -->
+        <test-method status="PASS" signature="verifyAvatar()[pri:6, instance:com.streame.tests.CreateAccountPageTest@26653222]" name="verifyAvatar" duration-ms="3345" started-at="2017-03-28T16:12:25Z" finished-at="2017-03-28T16:12:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAvatar -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.streame.tests.CreateAccountPageTest@26653222]" name="tearDown" is-config="true" duration-ms="963" started-at="2017-03-28T16:12:29Z" finished-at="2017-03-28T16:12:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.streame.tests.HomePageTest -->
+      </class> <!-- com.streame.tests.CreateAccountPageTest -->
     </test> <!-- Au_Test -->
   </suite> <!-- Streame Project -->
 </testng-results>
