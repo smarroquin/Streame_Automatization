@@ -9,7 +9,6 @@ import java.awt.datatransfer.StringSelection;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -62,16 +61,17 @@ public class CreateAccountPage {
 			emailTxtBox.sendKeys(email);
 	}
 	
-	public void enterDateOfBirth(String dateBirth) {
-		WebElement dateBirthBox = driver.findElement(dateOfBirth);
-		if(dateBirthBox.isDisplayed())
-			dateBirthBox.sendKeys(dateBirth);
-	}
-	
-	public void enterGender (String gender) {
-		WebElement genderBox = driver.findElement(Gender);
-		if(genderBox.isDisplayed())
-			genderBox.sendKeys(gender);
+	public void enterDateOfBirth() {
+		driver.findElement(dateOfBirth);
+		driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div/ngb-datepicker-navigation/ngb-datepicker-navigation-select/select[2]")).click();
+		assertTrue(HomePage.isElementPresent(By.cssSelector("option[value=\"1986\"]")));
+		driver.findElement(By.cssSelector("option[value=\"1986\"]")).click();
+		//Select Month
+		driver.findElement(By.cssSelector("select.custom-select.d-inline-block")).click();
+		assertTrue(HomePage.isElementPresent(By.cssSelector("option[value=\"2\"]")));
+		driver.findElement(By.cssSelector("option[value=\"2\"]")).click();
+		//Select Day
+		driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div[2]/div/ngb-datepicker-month-view/div[2]/div[6]/div")).click();
 	}
 	
 	public void enterDisplayName(String DisplayName) {
@@ -94,7 +94,24 @@ public class CreateAccountPage {
 	
 	public void enterFailedAvatar () throws Exception {
 		uploadImage("C:\\Users\\dmarroquin\\Documents\\Resumen.odt");
+		System.out.println("Image Selected");
+	}
+	
+	public void enterAvatar () throws Exception {
+		uploadImage("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\IMG_20160601_091341.jpg");
 		Thread.sleep(500);
+		driver.switchTo().activeElement();
+	    assertTrue(HomePage.isElementPresent(By.cssSelector("cropper-modal > div.container > div.modal-header")));
+	    assertEquals(driver.findElement(By.cssSelector("h4.modal-title")).getText(), "Crop the image");
+	    assertTrue(HomePage.isElementPresent(By.cssSelector("canvas")));
+	    assertTrue(HomePage.isElementPresent(By.cssSelector("button.btn.btn-secondary")));
+	    assertEquals(driver.findElement(By.cssSelector("button.btn.btn-secondary")).getText(), "Cancel");
+	    assertTrue(HomePage.isElementPresent(By.xpath("(//button[@type='button'])[5]")));
+	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[5]")).getText(), "Ok");
+	    assertTrue(HomePage.isElementPresent(By.cssSelector("cropper-modal > div.container > div.modal-header > button.close")));
+	    assertEquals(driver.findElement(By.cssSelector("cropper-modal > div.container > div.modal-header > button.close")).getText(), "×");
+	    driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
+	    driver.switchTo().activeElement();
 	}
 	
 	public void enterPassword(String password) {
@@ -151,5 +168,5 @@ public class CreateAccountPage {
             exp.printStackTrace();
         }
 	}
-	
+		
 }

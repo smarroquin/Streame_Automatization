@@ -67,7 +67,7 @@ public class SignInPageTest extends Setup{
 		Thread.sleep(1000);
 		signInPage = HomePage.clickSignIn();
 		signInPage.verifyValidSignIn();
-		driver.findElement(By.id("login-comp__submit")).click();
+		driver.findElement(signInPage.loginBtn).click();
 		Thread.sleep(1000);
 		Assert.assertTrue(HomePage.isElementPresent(By.linkText("PLAYGROUND")));
 	    Assert.assertEquals(driver.findElement(By.linkText("PLAYGROUND")).getText(), "PLAYGROUND");

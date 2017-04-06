@@ -1,7 +1,6 @@
 package com.streame.pageobjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,7 +14,7 @@ public class SignInPage {
 	private By loginLink = By.id("navbar-comp__login-link");
 	private By emailTextBox = By.id("login-comp__username");
 	private By passwordTextBox = By.id("login-comp__password");
-	private By loginBtn = By.id("login-comp__submit");
+	public By loginBtn = By.id("login-comp__submit");
 	private By closeLink =By.id("login_comp__close-button");
 	
 	public SignInPage(WebDriver driver) {
