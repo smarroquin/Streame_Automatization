@@ -207,7 +207,7 @@ public class CreateAccountPageTest extends Setup{
 		driver.findElement(createAccountPage.emailTxt).clear();
 		createAccountPage.enterEmail("dmarroquin@gmail.com");
 		createAccountPage.enterDateOfBirth();
-		driver.findElement(By.id("register-comp__gender-0")).click();
+		driver.findElement(By.xpath("//div[@id='register-comp']/form/div[5]/div/div/div/label")).click();
 		driver.findElement(createAccountPage.displayNameTxt).clear();
 		createAccountPage.enterDisplayName("Dmarroquin");
 		driver.findElement(createAccountPage.HandleTxt).clear();

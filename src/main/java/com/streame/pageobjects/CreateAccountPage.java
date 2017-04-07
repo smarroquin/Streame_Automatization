@@ -61,14 +61,19 @@ public class CreateAccountPage {
 			emailTxtBox.sendKeys(email);
 	}
 	
-	public void enterDateOfBirth() {
-		driver.findElement(dateOfBirth);
+	public void enterDateOfBirth() throws Exception {
+		driver.findElement(dateOfBirth).click();
+		//select Year
 		driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div/ngb-datepicker-navigation/ngb-datepicker-navigation-select/select[2]")).click();
-		assertTrue(HomePage.isElementPresent(By.cssSelector("option[value=\"1986\"]")));
+		Thread.sleep(1000);
+		//assertTrue(HomePage.isElementPresent(By.cssSelector("option[value=\"1986\"]")));
+		//Thread.sleep(500);
 		driver.findElement(By.cssSelector("option[value=\"1986\"]")).click();
+		Thread.sleep(500);
 		//Select Month
 		driver.findElement(By.cssSelector("select.custom-select.d-inline-block")).click();
-		assertTrue(HomePage.isElementPresent(By.cssSelector("option[value=\"2\"]")));
+		Thread.sleep(500);
+		//assertTrue(HomePage.isElementPresent(By.cssSelector("option[value=\"2\"]")));
 		driver.findElement(By.cssSelector("option[value=\"2\"]")).click();
 		//Select Day
 		driver.findElement(By.xpath("//div[@id='register-comp']/form/div[4]/div/date-of-birth-input-component/ngb-datepicker/div[2]/div/ngb-datepicker-month-view/div[2]/div[6]/div")).click();
