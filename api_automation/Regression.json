@@ -6,7 +6,7 @@
 	"folders": [
 		{
 			"id": "44eb6a0b-2f61-a6fb-2cca-458d4cca6bdb",
-			"name": "1.User Service",
+			"name": "1.UserService",
 			"description": "",
 			"order": [
 				"ff9f8d72-f8da-fc03-4a8e-bd43cb25c2c9",
@@ -16,11 +16,12 @@
 				"1199ac21-b292-c0c2-d439-94ffe94f2932",
 				"fff282f6-c39f-1aeb-37e4-8ecbd7404971"
 			],
-			"owner": 0
+			"owner": 0,
+			"collectionId": "971154bf-d5b0-61e4-fd52-dfea2a0a55f6"
 		},
 		{
 			"id": "da501378-9a2b-c7c8-60bd-d50574679dd5",
-			"name": "2.Media Service",
+			"name": "2.MediaService",
 			"description": "",
 			"order": [
 				"472eda59-9241-8b63-35fc-2cb52b4280a5",
@@ -31,11 +32,12 @@
 				"ec9d727b-98eb-09ba-f8f7-180f0d917a9c",
 				"e9b70359-70e3-1743-f1f0-eef694df380c"
 			],
-			"owner": 0
+			"owner": 0,
+			"collectionId": "971154bf-d5b0-61e4-fd52-dfea2a0a55f6"
 		},
 		{
 			"id": "aa666f61-15d5-9698-80f7-2812e04024d3",
-			"name": "3.Page Service",
+			"name": "3.PageService",
 			"description": "Pre requisit:\n1. Run Media Service",
 			"order": [
 				"5adf46ed-e13e-7d38-2958-b6775ff92042",
@@ -47,11 +49,12 @@
 				"822c3139-c73c-e8f0-e4db-35558c6a369c",
 				"2b840af2-3d0f-4a5a-b429-cf8ec6e3990c"
 			],
-			"owner": 0
+			"owner": 0,
+			"collectionId": "971154bf-d5b0-61e4-fd52-dfea2a0a55f6"
 		},
 		{
 			"id": "870082e7-693a-e3c3-f715-20f06f987e44",
-			"name": "4. Comment Service",
+			"name": "4.CommentService",
 			"description": "",
 			"order": [
 				"df41e141-5a6a-6989-7fff-c857317db1e1",
@@ -61,11 +64,12 @@
 				"40f1996f-cbb0-41d3-f345-a2385275bf03",
 				"0d398112-b2c5-ce90-b462-00ee5646302a"
 			],
-			"owner": 0
+			"owner": 0,
+			"collectionId": "971154bf-d5b0-61e4-fd52-dfea2a0a55f6"
 		},
 		{
 			"id": "7b1b4b0c-4688-742e-a3cb-83f72c87fd0b",
-			"name": "5. Rating Service",
+			"name": "5.RatingService",
 			"description": "Pre requist:\nRun folder 4. Comment Service",
 			"order": [
 				"105f115c-b591-aeb7-1c84-39ae6e807663",
@@ -76,22 +80,24 @@
 				"f6af67a5-f2d5-b897-4b98-9cd6f0738631",
 				"fbb3542d-d4f5-4291-1d4f-c98019aaa3a1"
 			],
-			"owner": 0
+			"owner": 0,
+			"collectionId": "971154bf-d5b0-61e4-fd52-dfea2a0a55f6"
 		},
 		{
 			"id": "d542b2f9-2f9d-6b61-4271-5a612e969484",
-			"name": "6.Notification Service",
+			"name": "6.NotificationService",
 			"description": "",
 			"order": [
 				"d70cad1b-5633-a35f-4921-80a67a4fa3fd",
 				"21f00994-5697-d240-d43e-476fc6a78da2",
 				"706cf16e-4385-c53b-634e-0af011bc87aa"
 			],
-			"owner": 0
+			"owner": 0,
+			"collectionId": "971154bf-d5b0-61e4-fd52-dfea2a0a55f6"
 		},
 		{
 			"id": "396df676-e375-39c6-dc86-803228f8c0c0",
-			"name": "7. Translation Service",
+			"name": "7.TranslationService",
 			"description": "",
 			"order": [
 				"6b88e935-3ee5-aaad-b00d-bf64d1ba1166",
@@ -99,11 +105,12 @@
 				"8b4e710d-ffea-4ca9-9fce-38cf03d544e2",
 				"05bd713f-2f49-bdeb-3094-5cecb0931a6b"
 			],
-			"owner": 0
+			"owner": 0,
+			"collectionId": "971154bf-d5b0-61e4-fd52-dfea2a0a55f6"
 		},
 		{
 			"id": "54b0d641-7455-b85c-4ad4-68743d535ba8",
-			"name": "8. Widget Service",
+			"name": "8.WidgetService",
 			"description": "",
 			"order": [
 				"73a2572f-533a-1995-4b32-117c340bee37",
@@ -113,11 +120,12 @@
 				"8addba49-983d-c6dc-0b29-845be7dcfb9a",
 				"d317c9b4-4414-76a8-28c7-711ef4aef020"
 			],
-			"owner": 0
+			"owner": 0,
+			"collectionId": "971154bf-d5b0-61e4-fd52-dfea2a0a55f6"
 		},
 		{
 			"id": "c9eaa790-6a5b-c3d7-5c6f-86fc515279c5",
-			"name": "9.Upload Service",
+			"name": "9.UploadService",
 			"description": "Pre requisit:\n1. Run User Service\n2. Run Media Service\n3. Run Widget Service",
 			"order": [
 				"dc885454-cd7f-5a67-8615-56d044d6514d",
@@ -139,7 +147,7 @@
 		}
 	],
 	"timestamp": 1492016111832,
-	"owner": 0,
+	"owner": "1613098",
 	"public": false,
 	"requests": [
 		{
