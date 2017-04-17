@@ -1,0 +1,88 @@
+{
+  "id": "53dbfa18-7513-f6c7-e199-5acb190a27f7",
+  "name": "Variables",
+  "values": [
+    {
+      "enabled": true,
+      "key": "mediaKindId",
+      "value": "94038f96-ae30-4410-ada2-ca97ce802181",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "mediumId",
+      "value": "c14e430a-ccea-4e10-b466-ae488a22d5ec",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "mediaCategoryId",
+      "value": "0f4226f2-a3dd-43d3-a008-d87c6134ab1b",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "mediaGenre",
+      "value": "d8361fe5-d329-4774-96dc-734e98282347",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "mediaLanguage",
+      "value": "6bf59f2c-080a-4ff7-a93f-a4bb8b480b23",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "mediaMetadataId",
+      "value": "23fd947d-f2d0-4d38-a5c8-e103a55ed464",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "mediaGenre1",
+      "value": "4a073e8f-86fb-4cb0-a30d-79440f0714ed",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "mediaLanguage1",
+      "value": "399f6859-c472-4c64-aa8d-bf5eddfb5ece",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "ForeignKey",
+      "value": "undefined",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "foreignType",
+      "value": "undefined",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "commentId",
+      "value": "undefined",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "title",
+      "value": "undefined",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "UrlUser",
+      "value": "yd0phlzn5b.execute-api.us-east-1.amazonaws.com/qa/user",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1492444434993,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-04-17T15:53:57.841Z",
+  "_postman_exported_using": "Postman/4.10.7"
+}
