@@ -5,49 +5,49 @@
     {
       "enabled": true,
       "key": "mediaKindId",
-      "value": "94038f96-ae30-4410-ada2-ca97ce802181",
+      "value": "ca234792-9320-48ac-843e-8ace623809a3",
       "type": "text"
     },
     {
       "enabled": true,
       "key": "mediumId",
-      "value": "c14e430a-ccea-4e10-b466-ae488a22d5ec",
+      "value": "831277ea-cdea-4e20-a65a-a6e290f19423",
       "type": "text"
     },
     {
       "enabled": true,
       "key": "mediaCategoryId",
-      "value": "0f4226f2-a3dd-43d3-a008-d87c6134ab1b",
+      "value": "10e16183-e1da-4fed-9b42-3fbc0b4d6031",
       "type": "text"
     },
     {
       "enabled": true,
       "key": "mediaGenre",
-      "value": "d8361fe5-d329-4774-96dc-734e98282347",
+      "value": "d09d88be-e623-4fe1-83f5-e61a6dc325da",
       "type": "text"
     },
     {
       "enabled": true,
       "key": "mediaLanguage",
-      "value": "6bf59f2c-080a-4ff7-a93f-a4bb8b480b23",
+      "value": "82135988-21f8-4dc9-82dc-da52f403e8f0",
       "type": "text"
     },
     {
       "enabled": true,
       "key": "mediaMetadataId",
-      "value": "23fd947d-f2d0-4d38-a5c8-e103a55ed464",
+      "value": "bf0e0129-6800-4f86-b27b-ea434dfdcd45",
       "type": "text"
     },
     {
       "enabled": true,
       "key": "mediaGenre1",
-      "value": "4a073e8f-86fb-4cb0-a30d-79440f0714ed",
+      "value": "1e04dde3-9c95-44e5-94c3-c6fd25e8c084",
       "type": "text"
     },
     {
       "enabled": true,
       "key": "mediaLanguage1",
-      "value": "399f6859-c472-4c64-aa8d-bf5eddfb5ece",
+      "value": "6ed73aaf-4444-4071-b312-cf35fb57f2d9",
       "type": "text"
     },
     {
@@ -79,10 +79,64 @@
       "key": "UrlUser",
       "value": "yd0phlzn5b.execute-api.us-east-1.amazonaws.com/qa/user",
       "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "UrlMedia",
+      "value": "pftq83sk01.execute-api.us-east-1.amazonaws.com/qa",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "UrlPage",
+      "value": "ltxvep21fg.execute-api.us-east-1.amazonaws.com/qa",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "UrlComment",
+      "value": "pnoyp4s4lg.execute-api.us-east-1.amazonaws.com/qa  ",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "guid",
+      "value": "855a824d-b774-f4bb-4194-9fd844f65d87",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "UrlRating",
+      "value": "djhqtcn4wd.execute-api.us-east-1.amazonaws.com/qa",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "UrlTranslation\n",
+      "value": "9iskni39x1.execute-api.us-east-1.amazonaws.com/qa",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "UrlNotification",
+      "value": "ql413ll3yj.execute-api.us-east-1.amazonaws.com/qa",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "UrlWidget",
+      "value": "yh2z3sbuil.execute-api.us-east-1.amazonaws.com/qa",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "UrlUpload",
+      "value": "d2qbu9yvvj.execute-api.us-east-1.amazonaws.com/qa",
+      "type": "text"
     }
   ],
-  "timestamp": 1492444434993,
+  "timestamp": 1492451037534,
   "_postman_variable_scope": "environment",
-  "_postman_exported_at": "2017-04-17T15:53:57.841Z",
+  "_postman_exported_at": "2017-04-17T17:43:58.570Z",
   "_postman_exported_using": "Postman/4.10.7"
 }
