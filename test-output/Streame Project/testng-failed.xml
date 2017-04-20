@@ -7,13 +7,9 @@
     <classes>
       <class name="com.streame.tests.CreateAccountPageTest">
         <methods>
-          <include name="verifyFirstName"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifyEmail"/>
-          <include name="verifyLastName"/>
-          <include name="verifySuccessAccount"/>
-          <include name="verifyPassword"/>
+          <include name="verifyFailedAvatar"/>
           <include name="initializeTestBaseSetup"/>
         </methods>
       </class> <!-- com.streame.tests.CreateAccountPageTest -->

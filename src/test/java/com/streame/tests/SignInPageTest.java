@@ -33,11 +33,14 @@ public class SignInPageTest extends Setup{
 		Assert.assertTrue(signInPage.verifySignInPageTitle(), "Welcome");
 		Assert.assertTrue(signInPage.verifyClosePage(), "x");
 		Assert.assertTrue(HomePage.isElementPresent(By.id("login-comp__username")));
+		Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/login/div/div[2]/form/div[1]/label")));
 		Assert.assertTrue(HomePage.isElementPresent(By.id("login-comp__password")));
+		Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/login/div/div[2]/form/div[2]/label")));
 		Assert.assertTrue(HomePage.isElementPresent(By.id("login-comp__remember-me")));
 		signInPage.checkRemember();
+		Thread.sleep(500);
 		Assert.assertEquals(driver.findElement(By.id("login-comp__remember-me")).getAttribute("value"), "on");
-		Assert.assertEquals(driver.findElement(By.cssSelector("label")).getText(), "Remember me");
+		//Assert.assertEquals(driver.findElement(By.cssSelector("css=div.checkbox > label")).getText(), "Remember me");
 		driver.findElement(By.id("login-comp__password")).click();
 		driver.findElement(By.id("login-comp__username")).click();
 		Assert.assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Email address is required");
@@ -56,7 +59,7 @@ public class SignInPageTest extends Setup{
 		Assert.assertTrue(HomePage.isElementPresent(By.id("login-comp__submit")));
 		driver.findElement(By.id("login-comp__submit")).click();
 		driver.findElement(By.id("login_comp__close-button")).click();
-		driver.findElement(By.id("navbarSupportedContent")).click();
+		driver.findElement(By.id("navbar-comp__discover-link")).click();
 	    Thread.sleep(5000);
 	}
 	
@@ -68,7 +71,7 @@ public class SignInPageTest extends Setup{
 		signInPage = HomePage.clickSignIn();
 		signInPage.verifyValidSignIn();
 		driver.findElement(signInPage.loginBtn).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		Assert.assertTrue(HomePage.isElementPresent(By.linkText("PLAYGROUND")));
 	    Assert.assertEquals(driver.findElement(By.linkText("PLAYGROUND")).getText(), "PLAYGROUND");
 	    Assert.assertTrue(HomePage.isElementPresent(By.id("navbar-comp__logout-link")));

@@ -1,5 +1,6 @@
 package com.streame.pageobjects;
 
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -29,7 +30,6 @@ public class CreateAccountPage {
 	public By Avatar = By.cssSelector("span.make-drag-overlay.avatar-inherit");
 	public By PasswordTxt = By.id("register-comp__password");
 	public By confPasswordTxt = By.id("register-comp__confirm-password");
-	public By RegisterBtn = By.id("");
 	public  By closeBtn =By.cssSelector("button.close");
 	
 	public CreateAccountPage(WebDriver driver) {

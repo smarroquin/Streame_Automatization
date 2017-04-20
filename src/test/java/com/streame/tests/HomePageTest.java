@@ -49,6 +49,7 @@ private WebDriver driver;
 		 Thread.sleep(1000);
 		assertEquals(driver.findElement(By.id("navbar-comp__login-link")).getText(),"INGRESAR");
 		 assertEquals(driver.findElement(By.id("navbar-comp__register-link")).getText(), "CREAR CUENTA");
-	}
+		 driver.close();
+		}
 	
 }

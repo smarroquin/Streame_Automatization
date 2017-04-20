@@ -1,5 +1,6 @@
 package com.streame.tests;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -32,20 +33,26 @@ public class CreateAccountPageTest extends Setup{
 			Thread.sleep(1000);
 			createAccountPage.verifyCreateAccountPageText();
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.FirstNameTxt));
+			Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/register-container/register-modal/div/form/div[1]/div/label")));
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.LastNameTxt));
+			Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/register-container/register-modal/div/form/div[2]/div/label")));
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.emailTxt));
+			Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/register-container/register-modal/div/form/div[3]/div/label")));
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.dateOfBirth));
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.Gender));
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.displayNameTxt));
+			Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/register-container/register-modal/div/form/div[6]/div/label")));
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.HandleTxt));
+			Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/register-container/register-modal/div/form/div[7]/div/label")));
 			createAccountPage.Page_Down();
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.AddressTxt));
+			Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/register-container/register-modal/div/form/div[8]/div/shared-location-input-component/div/label")));
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.Avatar));
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.PasswordTxt));
+			Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/register-container/register-modal/div/form/div[10]/div/shared-password-input-component/div/label")));
 			Assert.assertTrue(HomePage.isElementPresent(createAccountPage.confPasswordTxt));
-			/*createAccountPage.Page_up();
-			createAccountPage.verifyClosePage();
-			driver.findElement(createAccountPage.closeBtn).click();*/
+			Assert.assertTrue(HomePage.isElementPresent(By.xpath("/html/body/ngb-modal-window/div/div/register-container/register-modal/div/form/div[10]/div/shared-password-input-component/div/div[2]/label")));
+
 	}
 	
 	@Test(priority=2)
@@ -75,9 +82,11 @@ public class CreateAccountPageTest extends Setup{
 	@Test(priority=3)
 	public void verifyFirstName() throws Exception {
 		createAccountPage = HomePage.clickonCreateAnAccount();
+		Thread.sleep(1000);
 		driver.findElement(createAccountPage.FirstNameTxt).clear();
 		createAccountPage.enterFirstName("#$%&%$#");
 		driver.findElement(createAccountPage.LastNameTxt).click();
+		Thread.sleep(2000);
 		Assert.assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "First Name must not contain numbers or special characters");
 		driver.findElement(createAccountPage.FirstNameTxt).clear();
 		createAccountPage.enterFirstName("11111111");
@@ -94,10 +103,10 @@ public class CreateAccountPageTest extends Setup{
 	
 	@Test(priority=4)
     public void verifyLastName() throws Exception {
-	
+	Thread.sleep(1000);
 	createAccountPage.enterLastName("#$%&%$#");
-	Thread.sleep(500);
 	driver.findElement(createAccountPage.emailTxt).click();
+	Thread.sleep(2000);
 	Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[2]/div/div")).getText(), "Last Name must not contain numbers or special characters");
 	Thread.sleep(500);
 	driver.findElement(createAccountPage.LastNameTxt).clear();
@@ -116,9 +125,10 @@ public class CreateAccountPageTest extends Setup{
 	
 	@Test(priority=5)
     public void verifyEmail() throws Exception {
+		Thread.sleep(1000);
 	createAccountPage.Page_Down();
 	createAccountPage.enterEmail("#$%&%$#");
-	Thread.sleep(500);
+	Thread.sleep(1000);
 	driver.findElement(createAccountPage.displayNameTxt).click();
 	Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[3]/div/div")).getText(), "Please enter a valid email address");
 	Thread.sleep(500);
@@ -157,8 +167,10 @@ public class CreateAccountPageTest extends Setup{
 	
 	@Test(priority=7)
     public void verifyPassword() throws Exception {
+		Thread.sleep(1000);
 	createAccountPage.Page_Down();	
 	driver.findElement(createAccountPage.PasswordTxt).click();
+	Thread.sleep(500);
 	driver.findElement(createAccountPage.PasswordTxt).clear();
 	createAccountPage.enterPassword("den1402$");	
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Confirm Password does not match Password.");
@@ -166,15 +178,15 @@ public class CreateAccountPageTest extends Setup{
 	driver.findElement(createAccountPage.PasswordTxt).clear();
 	createAccountPage.enterPassword("Deni");
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Confirm Password does not match Password.");
-    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password must contain at least one special character.");
+    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password must contain at least one numerical character");
     driver.findElement(createAccountPage.PasswordTxt).sendKeys(Keys.BACK_SPACE);
     driver.findElement(createAccountPage.PasswordTxt).sendKeys(Keys.BACK_SPACE);
     driver.findElement(createAccountPage.PasswordTxt).sendKeys(Keys.BACK_SPACE);
     driver.findElement(createAccountPage.PasswordTxt).sendKeys(Keys.BACK_SPACE);
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Password is required");
-    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password must begin with a letter or number.");
+    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password must contain at least one numerical character");
     driver.findElement(createAccountPage.PasswordTxt).clear();
-	createAccountPage.enterPassword("Deni$$");
+	createAccountPage.enterPassword("Deni1$$");
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Confirm Password does not match Password.");
     Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password must have at least 8 characters");
     driver.findElement(createAccountPage.PasswordTxt).clear();
@@ -182,7 +194,7 @@ public class CreateAccountPageTest extends Setup{
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Confirm Password does not match Password.");
     Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password must contain at least one numerical character");
     driver.findElement(createAccountPage.PasswordTxt).clear();
-	createAccountPage.enterPassword("&Deni");
+	createAccountPage.enterPassword("&Den345i");
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Confirm Password does not match Password.");
     Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password must begin with a letter or number.");
     driver.findElement(createAccountPage.PasswordTxt).clear();
@@ -198,6 +210,7 @@ public class CreateAccountPageTest extends Setup{
 	
     @Test(priority=8)
     public void verifySuccessAccount() throws Exception {
+    	Thread.sleep(1000);
     	createAccountPage = HomePage.clickonCreateAnAccount();
     	Thread.sleep(500);
     	driver.findElement(createAccountPage.FirstNameTxt).clear();

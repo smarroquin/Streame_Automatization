@@ -1,5 +1,6 @@
 package com.streame.pageobjects;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -86,7 +87,7 @@ public class SignInPage {
 		
 		public void verifyValidSignIn() {
 			enterUserName("denissita1402@hotmail.com");
-			enterPassword("Deni1402$");
+			enterPassword("Passw0rd!");
 			 System.out.println("Valid credentials");
 			
 		}
