@@ -231,6 +231,6 @@ public class CreateAccountPageTest extends Setup{
 		createAccountPage.enterPassword("Deni1402$");
 		driver.findElement(createAccountPage.confPasswordTxt).clear();
 		createAccountPage.enterConfPassword("Deni1402$");
-		
+		driver.close();
     }
 }
