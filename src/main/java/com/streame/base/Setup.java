@@ -1,8 +1,13 @@
 package com.streame.base;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -36,7 +41,17 @@ public class Setup {
 		private static WebDriver initChromeDriver(String appURL) {
 			System.out.println("Launching google chrome with new profile..");
 			System.setProperty("webdriver.chrome.driver", driverPath+ "chromedriver.exe");
-			WebDriver driver = new ChromeDriver();
+			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			 ChromeOptions options = new ChromeOptions();
+			    options.addArguments("--start-maximized");
+			    options.addArguments("--disable-web-security");
+			    options.addArguments("--no-proxy-server");
+			    Map<String, Object> prefs = new HashMap<String, Object>();
+			    prefs.put("credentials_enable_service", false);
+			    prefs.put("profile.password_manager_enabled", false);
+			    options.setExperimentalOption("prefs", prefs);
+			    capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+			WebDriver driver = new ChromeDriver(capabilities);
 			driver.manage().window().maximize();
 			driver.navigate().to(appURL);
 			return driver;

@@ -13,8 +13,8 @@ public class SignInPage {
 	
 	private By headerPageText = By.cssSelector("h2.modal-title");
 	private By loginLink = By.id("navbar-comp__login-link");
-	private By emailTextBox = By.id("login-comp__username");
-	private By passwordTextBox = By.id("login-comp__password");
+	public By emailTextBox = By.id("login-comp__username");
+	public By passwordTextBox = By.id("login-comp__password");
 	public By loginBtn = By.id("login-comp__submit");
 	private By closeLink =By.id("login_comp__close-button");
 	
@@ -84,11 +84,11 @@ public class SignInPage {
 			new WebDriverWait(driver, 1000).until(ExpectedConditions.visibilityOf(Checkbox));
 			selectCheckbox(Checkbox);
 		}
-		
 		public void verifyValidSignIn() {
 			enterUserName("denissita1402@hotmail.com");
 			enterPassword("Passw0rd!");
 			 System.out.println("Valid credentials");
 			
 		}
+		
 }
