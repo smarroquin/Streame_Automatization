@@ -51,6 +51,7 @@ public class BuildMenuTest  extends Setup {
 	    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[4]/div/div/label")).getText(), "Channels");
 	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[5]/div/div/label")));
 	    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[5]/div/div/label")).getText(), "Showcases");
+	  System.out.println("Complete");
 	}
 	
 	@Test(priority=2)
@@ -69,10 +70,47 @@ public class BuildMenuTest  extends Setup {
 	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[2]/div/dynamic-tree-menu/ul/li[3]/div/div/dynamic-component/find-container/build-finder/dynamic-tree-menu/ul/li[2]/div/div/label")));
 	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[2]/div/dynamic-tree-menu/ul/li[3]/div/div/dynamic-component/find-container/build-finder/dynamic-tree-menu/ul/li[3]/div/div/label")));
 	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[2]/div/dynamic-tree-menu/ul/li[3]/div/div/dynamic-component/find-container/build-finder/dynamic-tree-menu/ul/li[4]/div/div/label")));
+	    driver.findElement(By.id("media")).click();
+	    System.out.println("Complete");
+	    Thread.sleep(500);
 	}
 	@Test(priority=3)
 	public void PageBuild() throws Exception {
+		Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[3]/div/div/label")));
+		Assert.assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[3]/div/div/label")).getText(), "Pages");
+	    driver.findElement(By.id("pages")).click();
+	    Thread.sleep(500);
+	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[3]/div/div/label")).click();
+	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[3]/div/dynamic-tree-menu/ul/li/div/a")));
+	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[3]/div/div/label")));
+	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[3]/div/dynamic-tree-menu/ul/li[2]/div/div/dynamic-component/find-container/build-finder/div/div/div[2]/nav-item/a")));
+	    driver.findElement(By.id("pages")).click();
+	    System.out.println("Complete");
+
+	}
 	
+	@Test(priority=4)
+	public void ChannelBuild() throws Exception {
+		Assert.assertTrue(HomePage.isElementPresent(By.xpath("//a[contains(text(),'Create Channel')]")));
+		    driver.findElement(By.id("channels")).click();
+		    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[4]/div/div/label")).click();
+		    driver.findElement(By.id("showcases")).click();
+		    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[5]/div/div/label")).click(); System.out.println("Complete");
+		    driver.findElement(By.id("channels")).click();
+
+	}
+	@Test(priority=5)
+	public void ShowcasesBuild() throws Exception {
+	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//li[5]/div/dynamic-tree-menu/ul/li/div/div/table/tbody/tr/td/nav-item/a")));
+	    Assert.assertEquals(driver.findElement(By.linkText("Create Showcase")).getText(), "Create Showcase");
+	    driver.findElement(By.id("showcases")).click();
+	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[5]/div/div/label")).click();
+	    driver.findElement(By.id("pages")).click();
+	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[3]/div/div/label")).click();
+	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[3]/div/dynamic-tree-menu/ul/li[2]/div/div/dynamic-component/find-container/build-finder/div/div/div[2]/nav-item/a")));
+	    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[3]/div/dynamic-tree-menu/ul/li[2]/div/div/dynamic-component/find-container/build-finder/div/div/div[2]/nav-item/a")).getText(), "View all");
+	  System.out.println("Complete");
+
 	}
 }
 	
