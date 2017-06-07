@@ -170,7 +170,7 @@ public class CreateAccountPageTest extends Setup{
 		Thread.sleep(1000);
 	createAccountPage.Page_Down();	
 	driver.findElement(createAccountPage.PasswordTxt).click();
-	Thread.sleep(500);
+	Thread.sleep(1000);
 	driver.findElement(createAccountPage.PasswordTxt).clear();
 	createAccountPage.enterPassword("den1402$");	
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Confirm Password does not match Password.");
@@ -184,7 +184,7 @@ public class CreateAccountPageTest extends Setup{
     driver.findElement(createAccountPage.PasswordTxt).sendKeys(Keys.BACK_SPACE);
     driver.findElement(createAccountPage.PasswordTxt).sendKeys(Keys.BACK_SPACE);
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Password is required");
-    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password must contain at least one numerical character");
+    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password must contain at least one uppercase and lowercase letter.");
     driver.findElement(createAccountPage.PasswordTxt).clear();
 	createAccountPage.enterPassword("Deni1$$");
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Confirm Password does not match Password.");
@@ -202,10 +202,10 @@ public class CreateAccountPageTest extends Setup{
 	Thread.sleep(1000);
     Assert.assertEquals(driver.findElement(By.cssSelector("div.password-input > div.alert.alert-danger")).getText(), "Confirm Password does not match Password.");
     Assert.assertEquals(driver.findElement(By.xpath("//div[@id='register-comp']/form/div[10]/div/div")).getText(), "Password cannot equal first, last or display names");
-    Thread.sleep(500);
+    Thread.sleep(1000);
     createAccountPage.verifyClosePage();
 	driver.findElement(createAccountPage.closeBtn).click();	
-	Thread.sleep(500);
+	Thread.sleep(1000);
 	}
 	
     @Test(priority=8)
@@ -227,6 +227,9 @@ public class CreateAccountPageTest extends Setup{
 		createAccountPage.enterHandle("Dmarroquin");
 		driver.findElement(createAccountPage.AddressTxt).clear();
 		createAccountPage.enterAddress("Calle Los Olivos 215, San Isidro 15073, Perú");
+		driver.findElement(createAccountPage.Avatar).click();
+		Thread.sleep(500);
+		createAccountPage.enterAvatar();
 		driver.findElement(createAccountPage.PasswordTxt).clear();
 		createAccountPage.enterPassword("Deni1402$");
 		driver.findElement(createAccountPage.confPasswordTxt).clear();

@@ -106,14 +106,9 @@ public class CreateAccountPage {
 		uploadImage("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\IMG_20160601_091341.jpg");
 		Thread.sleep(500);
 		driver.switchTo().activeElement();
-	    assertTrue(HomePage.isElementPresent(By.cssSelector("cropper-modal > div.container > div.modal-header")));
 	    assertEquals(driver.findElement(By.cssSelector("h4.modal-title")).getText(), "Crop the image");
-	    assertTrue(HomePage.isElementPresent(By.cssSelector("canvas")));
-	    assertTrue(HomePage.isElementPresent(By.cssSelector("button.btn.btn-secondary")));
-	    assertEquals(driver.findElement(By.cssSelector("button.btn.btn-secondary")).getText(), "Cancel");
-	    assertTrue(HomePage.isElementPresent(By.xpath("(//button[@type='button'])[5]")));
-	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[5]")).getText(), "Ok");
-	    assertTrue(HomePage.isElementPresent(By.cssSelector("cropper-modal > div.container > div.modal-header > button.close")));
+	    assertEquals(driver.findElement(By.cssSelector("button.btn.btn-secondary")).getText(), "OK");
+	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[7]")).getText(), "Cancel");
 	    assertEquals(driver.findElement(By.cssSelector("cropper-modal > div.container > div.modal-header > button.close")).getText(), "×");
 	    driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
 	    driver.switchTo().activeElement();

@@ -8,8 +8,6 @@ import org.openqa.selenium.WebElement;
 public class BuildMenu {
 	public WebDriver driver;
 	public By BuildLink = By.id("buildMenu");
-	public By emailTextBox = By.id("login-comp__username");
-	public By passwordTextBox = By.id("login-comp__password");
 	
 	public BuildMenu(WebDriver driver) {
 		this.driver = driver;

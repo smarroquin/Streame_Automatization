@@ -5,14 +5,14 @@
   <parameter name="browserType" value="chrome"/>
   <test name="Au_Test(failed)">
     <classes>
-      <class name="com.streame.tests.BuildMenuTest">
+      <class name="com.streame.tests.UploadMediaTest">
         <methods>
+          <include name="UploadValidations"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="MediaBuild"/>
           <include name="initializeTestBaseSetup"/>
         </methods>
-      </class> <!-- com.streame.tests.BuildMenuTest -->
+      </class> <!-- com.streame.tests.UploadMediaTest -->
     </classes>
   </test> <!-- Au_Test(failed) -->
 </suite> <!-- Failed suite [Streame Project] -->
