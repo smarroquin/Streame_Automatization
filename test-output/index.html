@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Streame_Project">
-              <span class="suite-name border-passed">Streame Project</span>
+              <span class="suite-name border-failed">Streame Project</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">6 methods, 1 failed,   5 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Streame_Project" class="hide-methods failed suite-Streame_Project"> (hide)</a> <!-- hide-methods failed suite-Streame_Project -->
+                      <a href="#" panel-name="suite-Streame_Project" class="show-methods failed suite-Streame_Project"> (show)</a> <!-- show-methods failed suite-Streame_Project -->
+                    </span>
+                    <div class="method-list-content failed suite-Streame_Project">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Streame_Project" title="com.streame.tests.UploadMediaTest" hash-for-method="UploadMediaImage">UploadMediaImage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Streame_Project -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -107,7 +121,17 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Streame_Project" title="com.streame.tests.UploadMediaTest" hash-for-method="UploadMediaImage">UploadMediaImage</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Streame_Project" title="com.streame.tests.UploadMediaTest" hash-for-method="UploadMediaAudio">UploadMediaAudio</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Streame_Project" title="com.streame.tests.UploadMediaTest" hash-for-method="UploadMediaDocument">UploadMediaDocument</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Streame_Project" title="com.streame.tests.UploadMediaTest" hash-for-method="UploadMediaVideo">UploadMediaVideo</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -127,6 +151,39 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Streame_Project" class="panel Streame_Project">
+          <div class="suite-Streame_Project-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.streame.tests.UploadMediaTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="UploadMediaImage">
+                  </a> <!-- UploadMediaImage -->
+                  <span class="method-name">UploadMediaImage</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: unknown error: Element &lt;input _ngcontent-uyd-65=&quot;&quot; class=&quot;custom-control-input ng-untouched ng-pristine ng-invalid&quot; formcontrolname=&quot;agreement&quot; type=&quot;checkbox&quot;&gt; is not clickable at point (1081, 564). Other element would receive the click: &lt;span _ngcontent-uyd-65=&quot;&quot; class=&quot;custom-control-description&quot;&gt;...&lt;/span&gt;
+  (Session info: chrome=58.0.3029.110)
+  (Driver info: chromedriver=2.28.455520 (cc17746adff54984afff480136733114c6b3704b),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 50 milliseconds
+Build info: version: &apos;3.0.0&apos;, revision: &apos;350cf60&apos;, time: &apos;2016-10-13 10:48:57 -0700&apos;
+System info: host: &apos;dmarroquin&apos;, ip: &apos;192.168.1.187&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455520 (cc17746adff54984afff480136733114c6b3704b), userDataDir=C:\Users\DMARRO~1\AppData\Local\Temp\scoped_dir13216_27611}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: e3d82ea9ee4bd3545b5585e7de4eca5a
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:635)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:274)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at com.streame.pageobjects.UploadMedia.AgreeTerms(UploadMedia.java:77)
+	at com.streame.tests.UploadMediaTest.UploadMediaImage(UploadMediaTest.java:169)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Streame_Project-class-failed -->
           <div class="suite-Streame_Project-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -142,9 +199,23 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="UploadMediaImage">
-                  </a> <!-- UploadMediaImage -->
-                  <span class="method-name">UploadMediaImage</span>
+                  <a name="UploadMediaAudio">
+                  </a> <!-- UploadMediaAudio -->
+                  <span class="method-name">UploadMediaAudio</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="UploadMediaDocument">
+                  </a> <!-- UploadMediaDocument -->
+                  <span class="method-name">UploadMediaDocument</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="UploadMediaVideo">
+                  </a> <!-- UploadMediaVideo -->
+                  <span class="method-name">UploadMediaVideo</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -210,24 +281,36 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(6);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'OpenUpload')
 data.setCell(0, 2, 'com.streame.tests.UploadMediaTest')
-data.setCell(0, 3, 15163);
+data.setCell(0, 3, 16753);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'UploadValidations')
+data.setCell(1, 1, 'UploadMediaImage')
 data.setCell(1, 2, 'com.streame.tests.UploadMediaTest')
-data.setCell(1, 3, 4274);
+data.setCell(1, 3, 7785);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'UploadMediaImage')
+data.setCell(2, 1, 'UploadValidations')
 data.setCell(2, 2, 'com.streame.tests.UploadMediaTest')
-data.setCell(2, 3, 0);
+data.setCell(2, 3, 5459);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'UploadMediaAudio')
+data.setCell(3, 2, 'com.streame.tests.UploadMediaTest')
+data.setCell(3, 3, 2);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'UploadMediaVideo')
+data.setCell(4, 2, 'com.streame.tests.UploadMediaTest')
+data.setCell(4, 3, 2);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'UploadMediaDocument')
+data.setCell(5, 2, 'com.streame.tests.UploadMediaTest')
+data.setCell(5, 3, 1);
 window.suiteTableData['Streame_Project']= { tableData: data, tableDiv: 'times-div-Streame_Project'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 19 seconds</span>
+              <span class="suite-total-time">Total running time: 30 seconds</span>
               <div id="times-div-Streame_Project">
               </div> <!-- times-div-Streame_Project -->
             </div> <!-- times-div -->
@@ -260,23 +343,37 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">14544 ms</span>
+                <span class="method-start">12369 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">OpenUpload</span>
-                <span class="method-start">14555 ms</span>
+                <span class="method-start">12379 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">UploadValidations</span>
-                <span class="method-start">29718 ms</span>
+                <span class="method-start">29137 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <span class="method-name">UploadMediaDocument</span>
+                <span class="method-start">34598 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">UploadMediaImage</span>
-                <span class="method-start">33992 ms</span>
+                <span class="method-start">34601 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">UploadMediaAudio</span>
+                <span class="method-start">42393 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">UploadMediaVideo</span>
+                <span class="method-start">42403 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">33992 ms</span>
+                <span class="method-start">42406 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

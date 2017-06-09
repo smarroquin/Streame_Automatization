@@ -18,8 +18,14 @@ public class UploadMedia {
 	public By Description =By.id("upload-description");
 	public By Kind =By.cssSelector("div.placeholder");
 	public By Genre =By.xpath("//advanced-select[@id='upload-genres']/ng-select/div/div/input");
-
-	
+    public By MediaButton=By.cssSelector("label.btn.upload-buttons__browse");
+    public By ThumbnailButton= By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/metafiles-upload-box/div/div[2]/div/label");
+    public By Keywords=By.xpath("//div[5]/advanced-select/ng-select/div/div/input");
+	public By Audience = By.xpath("//advanced-select[@id='upload-audience']/ng-select/div/div/div");
+    public By Type= By.xpath("//div[7]/div/label");
+    public By SaveButton=By.xpath("//button[@type='submit']");
+    public By Terms=By.xpath("//*[@id='navbar-comp__discover-link']/div[1]/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/label[2]/input");
+    
 	public UploadMedia(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -28,13 +34,31 @@ public class UploadMedia {
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselect, null);
     }
 	public void enterImage () throws Exception {
-		MediaImage("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\casita.jpg");
+		MediaFile("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\casita.jpg");
 		System.out.println("Image Selected");
 	}
-	
-	public static void MediaImage(String Image){
+	public void enterAudio () throws Exception {
+		MediaFile("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\casita.jpg");
+	}
+	public void enterThumbAudio () throws Exception {
+		MediaFile("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\casita.jpg");
+	}
+	public void enterVideo () throws Exception {
+		MediaFile("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\casita.jpg");
+	}
+	public void enterThumbVideo () throws Exception {
+		MediaFile("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\casita.jpg");
+	}
+
+	public void enterDocument () throws Exception {
+		MediaFile("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\casita.jpg");
+	}
+	public void enterThumbDocument () throws Exception {
+		MediaFile("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\casita.jpg");
+	}
+	public static void MediaFile(String Media){
         try{
-            setClipBoardData(Image);
+            setClipBoardData(Media);
             Thread.sleep(500);
             Robot robot =  new Robot();
             robot.keyPress(java.awt.event.KeyEvent.VK_CONTROL);
@@ -63,6 +87,14 @@ public class UploadMedia {
 		WebElement element = driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[4]/label"));
 		Coordinates coordinate = ((Locatable)element).getCoordinates();
 		coordinate.inViewPort();
+	}
+	
+	public void AgreeTerms(){
+		if ( !driver.findElement(Terms).isSelected() )
+		{
+		     driver.findElement(Terms).click();
+		     System.out.println("Terms checked");
+		}
 	}
 	
 	

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="1" ignored="0" total="6" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Streame Project" duration-ms="35042" started-at="2017-06-07T18:49:34Z" finished-at="2017-06-07T18:50:09Z">
+  <suite name="Streame Project" duration-ms="43549" started-at="2017-06-09T20:44:43Z" finished-at="2017-06-09T20:45:27Z">
     <groups>
     </groups>
-    <test name="Au_Test" duration-ms="35042" started-at="2017-06-07T18:49:34Z" finished-at="2017-06-07T18:50:09Z">
+    <test name="Au_Test" duration-ms="43549" started-at="2017-06-09T20:44:43Z" finished-at="2017-06-09T20:45:27Z">
       <class name="com.streame.tests.UploadMediaTest">
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.streame.tests.UploadMediaTest@523884b2]" name="initializeTestBaseSetup" is-config="true" duration-ms="14544" started-at="2017-06-07T13:49:34Z" finished-at="2017-06-07T13:49:49Z">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.streame.tests.UploadMediaTest@523884b2]" name="initializeTestBaseSetup" is-config="true" duration-ms="12369" started-at="2017-06-09T15:44:43Z" finished-at="2017-06-09T15:44:56Z">
           <params>
             <param index="0">
               <value>
@@ -23,26 +23,99 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.streame.tests.UploadMediaTest@523884b2]" name="setUp" is-config="true" duration-ms="0" started-at="2017-06-07T13:49:49Z" finished-at="2017-06-07T13:49:49Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.streame.tests.UploadMediaTest@523884b2]" name="setUp" is-config="true" duration-ms="0" started-at="2017-06-09T15:44:56Z" finished-at="2017-06-09T15:44:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="OpenUpload()[pri:1, instance:com.streame.tests.UploadMediaTest@523884b2]" name="OpenUpload" duration-ms="15163" started-at="2017-06-07T13:49:49Z" finished-at="2017-06-07T13:50:04Z">
+        <test-method status="PASS" signature="OpenUpload()[pri:1, instance:com.streame.tests.UploadMediaTest@523884b2]" name="OpenUpload" duration-ms="16753" started-at="2017-06-09T15:44:56Z" finished-at="2017-06-09T15:45:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenUpload -->
-        <test-method status="PASS" signature="UploadValidations()[pri:2, instance:com.streame.tests.UploadMediaTest@523884b2]" name="UploadValidations" duration-ms="4274" started-at="2017-06-07T13:50:04Z" finished-at="2017-06-07T13:50:08Z">
+        <test-method status="PASS" signature="UploadValidations()[pri:2, instance:com.streame.tests.UploadMediaTest@523884b2]" name="UploadValidations" duration-ms="5459" started-at="2017-06-09T15:45:12Z" finished-at="2017-06-09T15:45:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UploadValidations -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.streame.tests.UploadMediaTest@523884b2]" name="tearDown" is-config="true" duration-ms="1049" started-at="2017-06-07T13:50:08Z" finished-at="2017-06-07T13:50:09Z">
+        <test-method status="PASS" signature="UploadMediaDocument()[pri:3, instance:com.streame.tests.UploadMediaTest@523884b2]" name="UploadMediaDocument" duration-ms="1" started-at="2017-06-09T15:45:18Z" finished-at="2017-06-09T15:45:18Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="UploadMediaImage()[pri:3, instance:com.streame.tests.UploadMediaTest@523884b2]" name="UploadMediaImage" duration-ms="0" started-at="2017-06-07T13:50:08Z" finished-at="2017-06-07T13:50:08Z">
+        </test-method> <!-- UploadMediaDocument -->
+        <test-method status="FAIL" signature="UploadMediaImage()[pri:3, instance:com.streame.tests.UploadMediaTest@523884b2]" name="UploadMediaImage" duration-ms="7785" started-at="2017-06-09T15:45:18Z" finished-at="2017-06-09T15:45:26Z">
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[unknown error: Element <input _ngcontent-uyd-65="" class="custom-control-input ng-untouched ng-pristine ng-invalid" formcontrolname="agreement" type="checkbox"> is not clickable at point (1081, 564). Other element would receive the click: <span _ngcontent-uyd-65="" class="custom-control-description">...</span>
+  (Session info: chrome=58.0.3029.110)
+  (Driver info: chromedriver=2.28.455520 (cc17746adff54984afff480136733114c6b3704b),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 50 milliseconds
+Build info: version: '3.0.0', revision: '350cf60', time: '2016-10-13 10:48:57 -0700'
+System info: host: 'dmarroquin', ip: '192.168.1.187', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455520 (cc17746adff54984afff480136733114c6b3704b), userDataDir=C:\Users\DMARRO~1\AppData\Local\Temp\scoped_dir13216_27611}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: e3d82ea9ee4bd3545b5585e7de4eca5a]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: unknown error: Element <input _ngcontent-uyd-65="" class="custom-control-input ng-untouched ng-pristine ng-invalid" formcontrolname="agreement" type="checkbox"> is not clickable at point (1081, 564). Other element would receive the click: <span _ngcontent-uyd-65="" class="custom-control-description">...</span>
+  (Session info: chrome=58.0.3029.110)
+  (Driver info: chromedriver=2.28.455520 (cc17746adff54984afff480136733114c6b3704b),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 50 milliseconds
+Build info: version: '3.0.0', revision: '350cf60', time: '2016-10-13 10:48:57 -0700'
+System info: host: 'dmarroquin', ip: '192.168.1.187', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455520 (cc17746adff54984afff480136733114c6b3704b), userDataDir=C:\Users\DMARRO~1\AppData\Local\Temp\scoped_dir13216_27611}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: e3d82ea9ee4bd3545b5585e7de4eca5a
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:635)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:274)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at com.streame.pageobjects.UploadMedia.AgreeTerms(UploadMedia.java:77)
+	at com.streame.tests.UploadMediaTest.UploadMediaImage(UploadMediaTest.java:169)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UploadMediaImage -->
+        <test-method status="PASS" signature="UploadMediaAudio()[pri:4, instance:com.streame.tests.UploadMediaTest@523884b2]" name="UploadMediaAudio" duration-ms="2" started-at="2017-06-09T15:45:26Z" finished-at="2017-06-09T15:45:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UploadMediaAudio -->
+        <test-method status="PASS" signature="UploadMediaVideo()[pri:4, instance:com.streame.tests.UploadMediaTest@523884b2]" name="UploadMediaVideo" duration-ms="2" started-at="2017-06-09T15:45:26Z" finished-at="2017-06-09T15:45:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UploadMediaVideo -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.streame.tests.UploadMediaTest@523884b2]" name="tearDown" is-config="true" duration-ms="1143" started-at="2017-06-09T15:45:26Z" finished-at="2017-06-09T15:45:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- com.streame.tests.UploadMediaTest -->
     </test> <!-- Au_Test -->
   </suite> <!-- Streame Project -->
