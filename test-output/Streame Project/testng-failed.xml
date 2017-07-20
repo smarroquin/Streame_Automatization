@@ -7,9 +7,15 @@
     <classes>
       <class name="com.streame.tests.UploadMediaTest">
         <methods>
+          <include name="UploadMediaDocument"/>
+          <include name="UploadMediaImage"/>
           <include name="UploadValidations"/>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="UploadMediaVideo"/>
+          <include name="CancelCompleted"/>
+          <include name="UploadMediaAudio"/>
+          <include name="CancelInProgress"/>
           <include name="initializeTestBaseSetup"/>
         </methods>
       </class> <!-- com.streame.tests.UploadMediaTest -->

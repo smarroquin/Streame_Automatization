@@ -64,7 +64,6 @@ public class BuildMenuTest  extends Setup {
 	    Thread.sleep(1000);
 	    Assert.assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[2]/div/dynamic-tree-menu/ul/li/div/a")).getText(), "Upload media");
 	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//input[@type='text']")));
-	    Assert.assertTrue(HomePage.isElementPresent(By.cssSelector("nav-item.text-center > a.nav-link")));
 	    Assert.assertTrue(HomePage.isElementPresent(By.cssSelector("build-finder > dynamic-tree-menu > ul.tree > li > div > div.menu > label.nav-link.menu__label")));
 	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[2]/div/dynamic-tree-menu/ul/li[3]/div/div/dynamic-component/find-container/build-finder/dynamic-tree-menu/ul/li[2]/div/div/label")));
 	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[2]/div/dynamic-tree-menu/ul/li[3]/div/div/dynamic-component/find-container/build-finder/dynamic-tree-menu/ul/li[3]/div/div/label")));
@@ -96,7 +95,6 @@ public class BuildMenuTest  extends Setup {
 	}
 	@Test(priority=5)
 	public void ShowcasesBuild() throws Exception {
-	    Assert.assertTrue(HomePage.isElementPresent(By.xpath("//li[5]/div/dynamic-tree-menu/ul/li/div/div/table/tbody/tr/td/nav-item/a")));
 	    driver.findElement(By.id("showcases")).click();
 	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div/dynamic-tree-menu/ul/li[5]/div/div/label")).click();
 	    driver.findElement(By.id("pages")).click();
