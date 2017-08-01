@@ -86,14 +86,14 @@ public class UploadMedia {
 		driver.switchTo().activeElement();
 	    assertEquals(driver.findElement(By.cssSelector("h4.modal-title")).getText(), "Crop the image");
 	    assertEquals(driver.findElement(By.cssSelector("button.btn.btn-secondary")).getText(), "OK");
-	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[10]")).getText(), "Cancel");
+	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[7]")).getText(), "Cancel");
 	    assertEquals(driver.findElement(By.cssSelector("cropper-modal > div.container > div.modal-header > button.close")).getText(), "×");
 	    driver.findElement(By.cssSelector("button.btn.btn-secondary")).click();
 	    driver.switchTo().activeElement();
 	}
 	
 	public void SidebarScroll() {
-		WebElement element = driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form"));
+		WebElement element = driver.findElement(By.xpath("//form"));
 		Coordinates coordinate = ((Locatable)element).getCoordinates();
 		coordinate.inViewPort();
 	}

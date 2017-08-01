@@ -41,24 +41,23 @@ public class UploadMediaTest extends Setup{
         Assert.assertTrue(HomePage.isElementPresent(By.cssSelector("button.nav-link.build-menu-button")));
         BuildMenu = new BuildMenu(driver);
         BuildMenu.clickBuild();
-	    Assert.assertEquals(driver.findElement(By.cssSelector("label.nav-link.menu__label")).getText(), "Media");
+	    Assert.assertEquals(driver.findElement(By.xpath("//h4[2]/span")).getText(), "Media");
 	    Upload = new UploadMedia(driver);
-	    driver.findElement(By.id("media")).click();
+	    driver.findElement(By.xpath("//h4[2]/span")).click();
 	    Thread.sleep(500);
-	    assertEquals(driver.findElement(By.linkText("Upload media")).getText(), "Upload media");
-	    driver.findElement(By.linkText("Upload media")).click();
+	    assertEquals(driver.findElement(By.cssSelector("media-menu > h4.menu-button")).getText(), "Upload Media");
+	    driver.findElement(By.cssSelector("media-menu > h4.menu-button")).click();
 	    Thread.sleep(500);
 	    driver.findElement(Upload.MediaButton).click();
 	    Thread.sleep(500);
 	    Upload.enterImage();
-	    assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/upload-box/div/div/i")));
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.status-overlay__content > span")));
-	    Thread.sleep(1000);
-	    assertEquals(driver.findElement(By.cssSelector("div.status-overlay__content > span")).getText(), "Image file uploaded");
-	    assertEquals(driver.findElement(By.cssSelector("span.metadata-preview-content__key")).getText(), "File name:");
+	    Thread.sleep(3000);
+	    assertEquals(driver.findElement(By.cssSelector("div.status-overlay__content > span")).getText(), "Image File Uploaded");
+	    assertEquals(driver.findElement(By.cssSelector("span.metadata-preview-content__key")).getText(), "File Name:");
 	    assertEquals(driver.findElement(By.cssSelector("p.metadata-preview__info > span.metadata-preview-content__key")).getText(), "Size:");
 	    //File Name and Size
-	    assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/upload-box/div[2]/div/div/div/span[2]")).getText(), "casita.jpg");
+	    assertEquals(driver.findElement(By.xpath("//div[2]/div/div/div/span[2]")).getText(), "Casita.jpg");
 	    assertEquals(driver.findElement(By.cssSelector("span.metadata-preview__size")).getText(), "5.59 KB");
 	    assertEquals(driver.findElement(By.cssSelector("div.progress-bar")).getText(), "100 %");
 	    assertTrue(HomePage.isElementPresent(By.xpath("//div[2]/i")));
@@ -74,21 +73,21 @@ public class UploadMediaTest extends Setup{
 	    Upload.SidebarScroll();
 	    Thread.sleep(500);
 	   try{
-	   assertTrue(driver.findElement(By.cssSelector("div.form-group > label.upload-form__label")).getText().matches("^exact:Title \\([\\s\\S]*\\)$"));
-	   assertTrue(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[2]/label")).getText().matches("^exact:Description [\\s\\S]*$"));
-	    assertTrue(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[3]/label")).getText().matches("^exact:Kind \\([\\s\\S]*\\)$"));
-	    assertTrue(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[4]/label")).getText().matches("^exact:Genres \\([\\s\\S]*\\)$"));
-	    assertTrue(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[5]/label")).getText().matches("^exact:Keywords \\([\\s\\S]*\\)$"));
+	   assertTrue(driver.findElement(By.xpath("//form/div/label")).getText().matches("^exact:Title \\([\\s\\S]*\\)$"));
+	   assertTrue(driver.findElement(By.xpath("//div[2]/label")).getText().matches("^exact:Description [\\s\\S]*$"));
+	    assertTrue(driver.findElement(By.xpath("//div[3]/label")).getText().matches("^exact:Kind \\([\\s\\S]*\\)$"));
+	    assertTrue(driver.findElement(By.xpath("//div[4]/label")).getText().matches("^exact:Genres \\([\\s\\S]*\\)$"));
+	    assertTrue(driver.findElement(By.xpath("//div[5]/label")).getText().matches("^exact:Keywords \\([\\s\\S]*\\)$"));
 	   } catch(Error e){}
-	    assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[6]/label")).getText(), "Explicit Content");
+	    assertEquals(driver.findElement(By.xpath("//div[6]/label")).getText(), "Explicit Content");
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.upload-form__switch-slider")));
 	    assertEquals(driver.findElement(By.cssSelector("label.upload-form__label.upload-form__label_block")).getText(), "Visibility");
-	    assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label")));
-	    assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label[2]")));
-	    assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label[3]")));
-	    assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[8]/label")).getText(), "Share");
+	    assertTrue(HomePage.isElementPresent(By.xpath("//div[7]/div/label")));
+	    assertTrue(HomePage.isElementPresent(By.xpath("//label[2]")));
+	    assertTrue(HomePage.isElementPresent(By.xpath("//label[3]")));
+	    assertEquals(driver.findElement(By.xpath("//div[8]/label")).getText(), "Share");
 	    try{ 
-	    assertTrue(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/label")).getText().matches("^exact:[\\s\\S]* Required fields$"));
+	    assertTrue(driver.findElement(By.xpath("//form/label")).getText().matches("^exact:[\\s\\S]* Required fields$"));
 	    } catch(Error e){}
 	    try{ 
 	    assertTrue(HomePage.isElementPresent(By.id("upload-title")));
@@ -102,7 +101,7 @@ public class UploadMediaTest extends Setup{
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.placeholder")));
 	    } catch(Error e){}
 	    //REVIEW LATER
-	    assertEquals(driver.findElement(By.cssSelector("div.placeholder")).getText(), "Search or select one kind");
+	    assertEquals(driver.findElement(By.cssSelector("div.placeholder")).getText(), "Search Or Select One Kind");
 	    try{ 
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.multiple > input")));
 	    assertTrue(HomePage.isElementPresent(By.xpath("//chips[@id='upload-genres']/div")));
@@ -110,19 +109,19 @@ public class UploadMediaTest extends Setup{
 	    assertTrue(HomePage.isElementPresent(By.xpath("//advanced-select[@id='upload-audience']/div/ng-select/div/div/div")));
 	    assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label")));
 	    } catch(Error e){}
-	    assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label")).getText(), "Private");
-	    assertEquals(driver.findElement(By.cssSelector("small.form-group__small")).getText(), "Viewable only for its publishers. Can't be searched or included in a page or a channel.");
-	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label[2]")).click();
+	    assertEquals(driver.findElement(By.xpath("//div[7]/div/label")).getText(), "Private");
+	    assertEquals(driver.findElement(By.cssSelector("small.form-group__small")).getText(), "Viewable Only For Its Publishers. Can't Be Searched Or Included In A Page Or A Channel.");
+	    driver.findElement(By.xpath("//label[2]")).click();
 	    Thread.sleep(1000);
-	    assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label[2]")).getText(), "Public");
-	    assertEquals(driver.findElement(By.cssSelector("small.form-group__small")).getText(), "Searchable and viewable by everyone.");
-	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label[3]")).click();
+	    assertEquals(driver.findElement(By.xpath("//label[2]")).getText(), "Public");
+	    assertEquals(driver.findElement(By.cssSelector("small.form-group__small")).getText(), "Searchable And Viewable By Everyone.");
+	    driver.findElement(By.xpath("//label[3]")).click();
 	    Thread.sleep(1000);
-	    assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label[3]")).getText(), "Invitation");
-	    assertEquals(driver.findElement(By.cssSelector("small.form-group__small")).getText(), "Viewable only for its publishers and invitees. Can't be searched or included in a page or a channel.");
-	    assertEquals(driver.findElement(By.cssSelector("div.ml-3 > label.upload-form__label.upload-form__label_block")).getText(), "Invite to");
+	    assertEquals(driver.findElement(By.xpath("//label[3]")).getText(), "Invitation");
+	    assertEquals(driver.findElement(By.cssSelector("small.form-group__small")).getText(), "Viewable Only For Its Publishers And Invitees. Can't Be Searched Or Included In A Page Or A Channel.");
+	    assertEquals(driver.findElement(By.cssSelector("div.ml-3 > label.upload-form__label.upload-form__label_block")).getText(), "Invite To");
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("#upload-invitation > div.chips-container > input.input")));
-	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[7]/div/label")).click();
+	    driver.findElement(By.xpath("//div[7]/div/label")).click();
 	    Thread.sleep(1000);
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("button.btn.btn-default")));
 	    assertEquals(driver.findElement(By.cssSelector("button.btn.btn-default")).getText(), "CANCEL");
