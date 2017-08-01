@@ -5,7 +5,7 @@
     <parameter name="browserType" value="chrome"/>
   <test name="Au_Test">
     <classes>
-     <class name="com.streame.tests.UploadMediaTest"/>
+     <class name="com.streame.tests.BuildMenuTest"/>
 
     </classes>
   </test> <!-- Test -->

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class BuildMenu {
 	public WebDriver driver;
-	public By BuildLink = By.id("buildMenu");
+	public By BuildLink = By.cssSelector("button.nav-link.build-menu-button");
 	
 	public BuildMenu(WebDriver driver) {
 		this.driver = driver;

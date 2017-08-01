@@ -93,7 +93,7 @@ public class UploadMedia {
 	}
 	
 	public void SidebarScroll() {
-		WebElement element = driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[4]/label"));
+		WebElement element = driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form"));
 		Coordinates coordinate = ((Locatable)element).getCoordinates();
 		coordinate.inViewPort();
 	}
