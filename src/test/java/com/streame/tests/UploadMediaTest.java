@@ -49,10 +49,10 @@ public class UploadMediaTest extends Setup{
 	    driver.findElement(By.cssSelector("media-menu > h4.menu-button")).click();
 	    Thread.sleep(500);
 	    driver.findElement(Upload.MediaButton).click();
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    Upload.enterImage();
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.status-overlay__content > span")));
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 	    assertEquals(driver.findElement(By.cssSelector("div.status-overlay__content > span")).getText(), "Image File Uploaded");
 	    assertEquals(driver.findElement(By.cssSelector("span.metadata-preview-content__key")).getText(), "File Name:");
 	    assertEquals(driver.findElement(By.cssSelector("p.metadata-preview__info > span.metadata-preview-content__key")).getText(), "Size:");
@@ -133,32 +133,34 @@ public class UploadMediaTest extends Setup{
 		driver.findElement(Upload.Title).clear();
 	    driver.findElement(Upload.Title).sendKeys("11/");
 	    Thread.sleep(1000);
-	    assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Title must not contain numbers or special characters");
+	    assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Title Must Not Contain Numbers Or Special Characters");
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.alert.alert-danger")));
 	    driver.findElement(Upload.Title).clear();
 	    driver.findElement(Upload.Title).sendKeys("/");
 	    Thread.sleep(500);
-	    assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Title must not contain numbers or special characters");
+	    assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Title Must Not Contain Numbers Or Special Characters");
 	    driver.findElement(Upload.Title).sendKeys(Keys.BACK_SPACE);
 	    driver.findElement(Upload.Title).sendKeys(Keys.BACK_SPACE);
 	    Thread.sleep(1000);
-	    assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Title is required");
+	    assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "Title Is Required");
 	    driver.findElement(Upload.Description).clear();
 	    driver.findElement(Upload.Description).sendKeys("k");
 	    Thread.sleep(500);
 	    driver.findElement(Upload.Description).sendKeys(Keys.BACK_SPACE);
 	    driver.findElement(Upload.Description).sendKeys(Keys.BACK_SPACE);
 	    Thread.sleep(2000);
-	    assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[3]")));
-	    assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[3]")).getText(), "Description is required");
+	    assertTrue(HomePage.isElementPresent(By.xpath("//form/div[3]")));
+	    assertEquals(driver.findElement(By.xpath("//form/div[3]")).getText(), "Description Is Required");
 	    driver.findElement(Upload.Kind).click();
 	    driver.findElement(Upload.Kind).click();
 	    Thread.sleep(1000);
-	    //Bug pending
-	    //assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[3]/div")).getText(), "Please choose at least one kind");
-	    //assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[3]/div")));
-	    assertTrue(HomePage.isElementPresent(By.xpath("/html/body/streame-app/layout/navbar/nav/div/div[1]/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/button")));
-   	  //Keywords
+	    assertEquals(driver.findElement(By.xpath("//form/div[4]/div")).getText(), "Please Choose At Least One Kind");
+	    assertTrue(HomePage.isElementPresent(By.xpath("//form/div[4]/div")));
+	    Thread.sleep(1000);
+	    //Genre
+	    assertTrue(HomePage.isElementPresent(Upload.Genre));
+	    assertEquals(driver.findElement(Upload.Genre).getText(), "Genres");
+	    //Keywords
 	    driver.findElement(Upload.Keywords).click();
    	    Thread.sleep(1000);
 	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
@@ -205,59 +207,49 @@ public class UploadMediaTest extends Setup{
 	    Thread.sleep(1000);
 	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
 	    Thread.sleep(1000);
-	    assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[6]/div")));
-	    assertEquals(driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[6]/div")).getText(), "Only 10 keywords can be selected");
+	    assertTrue(HomePage.isElementPresent(By.xpath("//form/div[6]/div")));
+	    assertEquals(driver.findElement(By.xpath("//form/div[6]/div")).getText(), "Only 10 Keywords Can Be Selected");
 	    Thread.sleep(1000);
-	    // Invitation
-	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form/div[8]/div/label[3]")).click();
-	    Thread.sleep(1000);
-	    //driver.findElement(By.xpath("//label[3]")).click();
-	    Thread.sleep(1000);
-	    WebElement problematicElement= driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/form"));
+	    // Invitation x completar
+	   /* driver.findElement(By.xpath("//label[3]")).click();
+	    Thread.sleep(1000);*/
+	    WebElement problematicElement= driver.findElement(By.xpath("//form"));
 	    JavascriptExecutor js = (JavascriptExecutor)driver;
 	    js.executeScript("arguments[0].scrollIntoView()", problematicElement);
 	    Thread.sleep(1000);
-	    
+	   /* 
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("#upload-invitation > div.chips-container > input.input")));
-	    driver.findElement(By.id("ngb-typeahead-3-0")).click();
-	    driver.findElement(By.id("ngb-typeahead-3-1")).click();
+	    driver.findElement(Upload.Iinput).click();
 	    Thread.sleep(1000);
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("#upload-invitation > div.chips-container > input.input")));
-	    driver.findElement(By.cssSelector("input.input.open")).sendKeys("dmarroquin@gmail.com");
+	    driver.findElement(Upload.Iinput).sendKeys("dmarroquin@gmail.com");
 	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-3-0")).click();
-	    //Share
+	    driver.findElement(Upload.Iinput).click();
+	    //Share X Completar
+	    Thread.sleep(1000);
+	    js.executeScript("arguments[0].scrollIntoView()", problematicElement);
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("#upload-share > div.chips-container > input.input")));
-	    driver.findElement(By.id("ngb-typeahead-2-0")).click();
-	    driver.findElement(By.id("ngb-typeahead-2-1")).click();
+	    driver.findElement(By.xpath("//chips[@id='upload-share']/div/input")).click();
 	    Thread.sleep(1000);
-	    driver.findElement(By.cssSelector("input.input.open")).clear();
-	    driver.findElement(By.cssSelector("input.input.open")).sendKeys("dmarroquin@gmail.com");
+	    driver.findElement(By.xpath("//chips[@id='upload-share']/div/input")).sendKeys("dmarroquin@gmail.com");
 	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-2-0")).click();
-	    	    	    
+	    driver.findElement(By.id("ngb-typeahead-5-0")).click();
+	    	*/    	    
 	    driver.findElement(By.cssSelector("button.btn.btn-default")).click();
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.modal-body")));
 	    assertEquals(driver.findElement(By.cssSelector("p.modal-body__description")).getText(), "casita.jpg image file will be deleted.\nYou'll have to upload a file again.");
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("button.modal-footer__btn")));
-	    assertTrue(HomePage.isElementPresent(By.xpath("(//button[@type='button'])[7]")));
+	    assertTrue(HomePage.isElementPresent(By.xpath("(//button[@type='button'])[4]")));
 	    assertEquals(driver.findElement(By.cssSelector("button.modal-footer__btn")).getText(), "Delete file");
-	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[7]")).getText(), "Keep file");
+	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[4]")).getText(), "Keep file");
 	    driver.findElement(By.cssSelector("button.modal-footer__btn")).click();
-	    driver.findElement(By.cssSelector("div.d-flex.justify-content-between > div > a.nav-link")).click();
-        BuildMenu.clickBuild();
         Thread.sleep(500);
-
-	}
+        js.executeScript("scroll(0, -250);");
+      	}
 
 	@Test(priority=3)
 	public void UploadMediaImage() throws Exception {
-        BuildMenu.clickBuild();
-        Thread.sleep(1000);
-	    //driver.findElement(By.id("media")).click();
-        //Thread.sleep(1000);
-	    driver.findElement(By.linkText("Upload media")).click();
-        Thread.sleep(500);
+     
 	    driver.findElement(Upload.MediaButton).click();
 	    Upload.enterImage();
 	    driver.findElement(Upload.ThumbnailButton).click();
@@ -271,10 +263,11 @@ public class UploadMediaTest extends Setup{
 	    Thread.sleep(500);
 	    driver.findElement(Upload.Kind).click();
 	    Thread.sleep(500);
-	    driver.findElement(By.xpath("//div[2]/ul/li[2]")).click();
-	    //driver.findElement(Upload.Genre).click();
+	    driver.findElement(By.xpath("//select-dropdown/div/div[2]/ul/li")).click();
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).click();
 	    Thread.sleep(500);
-	    //driver.findElement(By.xpath("//div/ul/li[3]")).click();
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).sendKeys(Keys.ARROW_DOWN);
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).sendKeys(Keys.ENTER);
 	    driver.findElement(Upload.Keywords).click();
 	    Thread.sleep(500);
 	    driver.findElement(By.xpath("//div/ul/li[3]")).click();
@@ -285,16 +278,19 @@ public class UploadMediaTest extends Setup{
 	    assertTrue(HomePage.isElementPresent(Upload.SaveButton));
         driver.findElement(Upload.SaveButton).click();
         Thread.sleep(5000);
-        
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("scroll(0, -250);");
+        driver.findElement(By.xpath("//span[3]")).click();
+        Thread.sleep(1000);
 	}
 
 	@Test(priority=4)
 	public void UploadMediaAudio() throws Exception {
-		//BuildMenu.clickBuild();
+		BuildMenu.clickBuild();
 		Thread.sleep(1000);
-	   // driver.findElement(By.id("media")).click();
+	    driver.findElement(By.xpath("//h4[2]/span")).click();
 	    Thread.sleep(500);
-	    //driver.findElement(By.linkText("Upload media")).click();
+	    driver.findElement(By.xpath("//media-menu/h4")).click();
 		Thread.sleep(500);
 	    driver.findElement(Upload.MediaButton).click();
 	    Upload.enterAudio();;
@@ -309,10 +305,11 @@ public class UploadMediaTest extends Setup{
 	    Thread.sleep(500);
 	    driver.findElement(Upload.Kind).click();
 	    Thread.sleep(500);
-	    driver.findElement(By.xpath("//div[2]/ul/li[2]")).click();
-	    //driver.findElement(Upload.Genre).click();
+	    driver.findElement(By.xpath("//select-dropdown/div/div[2]/ul/li")).click();
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).click();
 	    Thread.sleep(500);
-	    //driver.findElement(By.xpath("//div/ul/li[3]")).click();
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).sendKeys(Keys.ARROW_DOWN);
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).sendKeys(Keys.ENTER);
 	    driver.findElement(Upload.Keywords).click();
 	    Thread.sleep(500);
 	    driver.findElement(By.xpath("//div/ul/li[3]")).click();
@@ -322,13 +319,16 @@ public class UploadMediaTest extends Setup{
 	    assertTrue(HomePage.isElementPresent(Upload.SaveButton));
         driver.findElement(Upload.SaveButton).click();
         Thread.sleep(5000);
-
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("scroll(0, -250);");
+        driver.findElement(By.xpath("//span[3]")).click();
+        Thread.sleep(1000);
 	}
 	@Test(priority=5)
 	public void UploadMediaVideo() throws Exception {
-		//BuildMenu.clickBuild();
-	    //driver.findElement(By.id("media")).click();
-	   // driver.findElement(By.linkText("Upload media")).click();
+		BuildMenu.clickBuild();
+	   driver.findElement(By.xpath("//h4[2]/span")).click();
+	   driver.findElement(By.xpath("//media-menu/h4")).click();
 	    driver.findElement(Upload.MediaButton).click();
 	    Upload.enterVideo();;
 	    driver.findElement(Upload.ThumbnailButton).click();
@@ -346,27 +346,30 @@ public class UploadMediaTest extends Setup{
 	    Thread.sleep(500);
 	    driver.findElement(Upload.Kind).click();
 	    Thread.sleep(500);
-	    driver.findElement(By.xpath("//div[2]/ul/li[2]")).click();
-	    //driver.findElement(Upload.Genre).click();
+	    driver.findElement(By.xpath("//select-dropdown/div/div[2]/ul/li")).click();
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).click();
 	    Thread.sleep(500);
-	    //driver.findElement(By.xpath("//div/ul/li[3]")).click();
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).sendKeys(Keys.ARROW_DOWN);
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).sendKeys(Keys.ENTER);
 	    driver.findElement(Upload.Keywords).click();
 	    Thread.sleep(500);
 	    driver.findElement(By.xpath("//div/ul/li[3]")).click();
 	    driver.findElement(Upload.Audience).click();
-	    //driver.findElement(By.xpath("//div[2]/ul/li[2]")).click();
 	    driver.findElement(Upload.Type).click();
 	    Thread.sleep(500);
 	    assertTrue(HomePage.isElementPresent(Upload.SaveButton));
         driver.findElement(Upload.SaveButton).click();
         Thread.sleep(5000);
-
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("scroll(0, -250);");
+        driver.findElement(By.xpath("//span[3]")).click();
+        Thread.sleep(5000);
 	}
 	@Test(priority=6)
 	public void UploadMediaDocument() throws Exception {
-		//BuildMenu.clickBuild();
-	   // driver.findElement(By.id("media")).click();
-	   // driver.findElement(By.linkText("Upload media")).click();
+		BuildMenu.clickBuild();
+	   driver.findElement(By.xpath("//h4[2]/span")).click();
+	   driver.findElement(By.xpath("//media-menu/h4")).click();
 	    driver.findElement(Upload.MediaButton).click();
 	    Upload.enterDocument();;
 	    driver.findElement(Upload.ThumbnailButton).click();
@@ -380,24 +383,25 @@ public class UploadMediaTest extends Setup{
 	    Thread.sleep(500);
 	    driver.findElement(Upload.Kind).click();
 	    Thread.sleep(500);
-	    driver.findElement(By.xpath("//div[2]/ul/li[2]")).click();
-	   // driver.findElement(Upload.Genre).click();
+	    driver.findElement(By.xpath("//select-dropdown/div/div[2]/ul/li")).click();
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).click();
 	    Thread.sleep(500);
-	  //  driver.findElement(By.xpath("//div/ul/li[3]")).click();
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).sendKeys(Keys.ARROW_DOWN);
+	    driver.findElement(By.xpath("//chips[@id='upload-genres']/div/input")).sendKeys(Keys.ENTER);
 	    driver.findElement(Upload.Keywords).click();
 	    Thread.sleep(500);
 	    driver.findElement(By.xpath("//div/ul/li[3]")).click();
 	    driver.findElement(Upload.Audience).click();
-	    //driver.findElement(By.xpath("//div[2]/ul/li[2]")).click();
 	    driver.findElement(Upload.Type).click();
 	    Thread.sleep(500);
 	    assertTrue(HomePage.isElementPresent(Upload.SaveButton));
         driver.findElement(Upload.SaveButton).click();
         Thread.sleep(5000);
-
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("scroll(0, -250);");
+        Thread.sleep(5000);
 	}
-	//Pending to refresh page on FF
-	/* @Test(priority=7)
+	 @Test(priority=7)
 	  public void UploadOnBackground() throws Exception {
 		driver.findElement(Upload.MediaButton).click();
 	    Upload.enterVideoBack();;
@@ -416,14 +420,30 @@ public class UploadMediaTest extends Setup{
 	    Thread.sleep(500);
 	    driver.findElement(Upload.Kind).click();
 	    Thread.sleep(500);
-	    driver.findElement(Upload.Type).click();
+	    driver.findElement(By.xpath("//select-dropdown/div/div[2]/ul/li")).click();
+	    Thread.sleep(1000);
+	    //driver.findElement(Upload.Type).click();
 	    Thread.sleep(500);
 	    assertTrue(HomePage.isElementPresent(Upload.SaveButton));
         driver.findElement(Upload.SaveButton).click();
         Thread.sleep(5000);
-	}*/
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("scroll(0, -250);");
+        assertTrue(HomePage.isElementPresent(By.xpath("/html/body/streame-app/layout/div/build-menu-r-ct/build-menu-r/div/div/upload-container/upload-overlay/dialog/button")));
+        driver.findElement(By.xpath("/html/body/streame-app/layout/div/build-menu-r-ct/build-menu-r/div/div/upload-container/upload-overlay/dialog/button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/streame-app/layout/div/build-menu-r-ct/build-menu-r/div/div/upload-container/upload-overlay/dialog/div[1]/upload-bg-bar")).click();
+        Thread.sleep(15000);
+        driver.findElement(By.xpath("//span[3]")).click();
+	    Thread.sleep(1000);
+
+	 }
+	 
    @Test(priority=8)
 	public void CancelInProgress() throws Exception {
+	   BuildMenu.clickBuild();
+	   driver.findElement(By.xpath("//h4[2]/span")).click();
+	   driver.findElement(By.xpath("//media-menu/h4")).click();
 		driver.findElement(Upload.MediaButton).click();
 	    Upload.enterVideoBack();;
 	    driver.findElement(Upload.ThumbnailButton).click();
@@ -432,48 +452,79 @@ public class UploadMediaTest extends Setup{
 	    driver.findElement(Upload.InitialButton).click();
 	    Upload.enterInitialImageVideo();
 	    Upload.Cropper();
+	    Thread.sleep(1000);
 	    Upload.enterThumbVideo();
 	    Upload.Cropper();
 	    // X button 
-	    assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/upload-box/div[2]/div/div[2]/div[2]/i")));
-	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/upload-box/div[2]/div/div[2]/div[2]/i")).click();
+	    assertTrue(HomePage.isElementPresent(By.xpath("//div[2]/i")));
+	    driver.findElement(By.xpath("//div[2]/i")).click();
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("p.modal-body__description")));
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("button.modal-footer__btn")));
-	    assertTrue(HomePage.isElementPresent(By.xpath("(//button[@type='button'])[7]")));
+	    assertTrue(HomePage.isElementPresent(By.xpath("(//button[@type='button'])[4]")));
 	    assertEquals(driver.findElement(By.cssSelector("button.modal-footer__btn")).getText(), "Cancel uploading");
-	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[7]")).getText(), "Keep uploading");
+	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[4]")).getText(), "Keep uploading");
 	    driver.findElement(By.cssSelector("button.modal-footer__btn")).click();
-	    assertEquals(driver.findElement(By.cssSelector("div.status-overlay__content > span")).getText(), "Video file upload was canceled.");
+	    assertEquals(driver.findElement(By.cssSelector("div.status-overlay__content > span")).getText(), "Video File Upload Was Canceled.");
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.upload-box.text-center")));
-	    assertEquals(driver.findElement(By.cssSelector("div.upload-box.text-center")).getText(), "Drop a file here\n \n Drop a file here\n Browse");
-
+	    assertEquals(driver.findElement(By.xpath("//label")).getText(), "Browse");
+	    Thread.sleep(5000);
    }
    
    @Test(priority=9)
  	public void CancelCompleted() throws Exception {
  		driver.findElement(Upload.MediaButton).click();
- 	    Upload.enterVideo();;
- 	    driver.findElement(Upload.ThumbnailButton).click();
- 	    Thread.sleep(500);
- 	    assertTrue(HomePage.isElementPresent(Upload.InitialButton));
- 	    driver.findElement(Upload.InitialButton).click();
- 	    Upload.enterInitialImageVideo();
- 	    Upload.Cropper();
- 	    Upload.enterThumbVideo();
- 	    Upload.Cropper();
+ 	    Upload.enterVideo();
+ 	    //driver.findElement(Upload.ThumbnailButton).click();
+ 	    Thread.sleep(10000);
+ 	    //assertTrue(HomePage.isElementPresent(Upload.InitialButton));
+ 	    //driver.findElement(Upload.InitialButton).click();
+ 	    //Upload.enterInitialImageVideo();
+ 	    //Upload.Cropper();
+ 	    //Upload.enterThumbVideo();
+ 	    //Upload.Cropper();
  	    // Trash Bin button 
- 	    assertTrue(HomePage.isElementPresent(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/upload-box/div[2]/div/div[2]/div[2]/i")));
- 	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/upload-box/div[2]/div/div[2]/div[2]/i")).click();
+ 	    assertTrue(HomePage.isElementPresent(By.xpath("//div[2]/i")));
+ 	    driver.findElement(By.xpath("//div[2]/i")).click();
  	    Thread.sleep(5000);
  	    assertTrue(HomePage.isElementPresent(By.cssSelector("p.modal-body__description")));
+ 	    try{
  	    assertTrue(driver.findElement(By.xpath("//p[2]")).getText().matches("^exact:Are you sure[\\s\\S]$"));
+ 	   } catch(Error e){}
  	    assertEquals(driver.findElement(By.cssSelector("button.modal-footer__btn")).getText(), "Delete file");
- 	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[7]")).getText(), "Keep file");
+ 	    assertEquals(driver.findElement(By.xpath("(//button[@type='button'])[4]")).getText(), "Keep file");
  	    assertTrue(HomePage.isElementPresent(By.cssSelector("button.modal-footer__btn")));
- 	    assertTrue(HomePage.isElementPresent(By.xpath("(//button[@type='button'])[7]")));
- 	    driver.findElement(By.xpath("(//button[@type='button'])[7]")).click();
- 	    driver.findElement(By.xpath("//div[@id='navbar-comp__discover-link']/div/ul/li[2]/build-menu-container/build-menu/div/div/div/div[3]/dynamic-component/upload-container/upload-overlay/dialog/upload-box/div[2]/div/div[2]/div[2]/i")).click();
+ 	    assertTrue(HomePage.isElementPresent(By.xpath("(//button[@type='button'])[4]")));
+ 	    driver.findElement(By.xpath("(//button[@type='button'])[4]")).click();
+ 	    driver.findElement(By.xpath("//div[2]/i")).click();
  	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.modal-body")));
  	    driver.findElement(By.cssSelector("button.modal-footer__btn")).click();
+ 	   Thread.sleep(15000);
+       driver.findElement(By.xpath("//span[3]")).click();
+	    Thread.sleep(1000);
+
     }
+   @Test(priority=10)
+	public void WrongType() throws Exception {
+	   BuildMenu.clickBuild();
+	   driver.findElement(By.xpath("//h4[2]/span")).click();
+	   driver.findElement(By.xpath("//media-menu/h4")).click();
+	   driver.findElement(Upload.MediaButton).click();
+	   Upload.enterWrongImage();
+	   Thread.sleep(1000);
+	   assertTrue(HomePage.isElementPresent(By.xpath("//upload-box/div/div[3]")));
+	   assertEquals(driver.findElement(By.xpath("//upload-box/div/div[3]")).getText(), "Invalid media type");
+   }
+   
+   @Test(priority=11)
+	public void SameName_Type() throws Exception {
+	    driver.findElement(Upload.MediaButton).click();
+	    Upload.enterImage();
+	    Thread.sleep(1000);
+	    driver.findElement(Upload.Title).clear();
+	    driver.findElement(Upload.Title).sendKeys("Superman");
+	    Thread.sleep(1000);
+	    assertTrue(HomePage.isElementPresent(By.xpath("//form/div/div")));
+	    assertEquals(driver.findElement(By.xpath("//form/div/div")).getText(), "A Image Of The Same Name Already Exists");
+  }
+   
 }

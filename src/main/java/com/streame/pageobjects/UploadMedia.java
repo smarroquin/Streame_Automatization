@@ -16,15 +16,17 @@ public class UploadMedia {
 	public By Title =By.id("upload-title");
 	public By Description =By.id("upload-description");
 	public By Kind =By.cssSelector("div.placeholder");
-	public By Genre =By.xpath("//advanced-select[@id='upload-genres']/ng-select/div/div/input");
+	public By Genre =By.xpath("//div[5]/label");
     public By MediaButton=By.cssSelector("label.btn.upload-buttons__browse");
     public By ThumbnailButton= By.cssSelector("label.btn.upload-buttons__browse");
     public By InitialButton = By.xpath("//metafiles-upload-box[2]/div/div[2]/div/label");
-    public By Keywords=By.xpath("(//input[@type='text'])[6]");
+    public By Keywords=By.xpath("(//input[@type='text'])[3]");
 	public By Audience = By.cssSelector("div.upload-form__switch-slider");
     public By Type= By.xpath("//div[7]/div/label");
     public By SaveButton=By.xpath("//button[@type='submit']");
     public By Kinput= By.xpath("//chips[@id='upload-keywords']/div/input");
+    public By Iinput= By.xpath("//chips[@id='upload-invitation']/div/input");
+    
     
 	public UploadMedia(WebDriver driver) {
 		this.driver = driver;
@@ -38,7 +40,11 @@ public class UploadMedia {
 		System.out.println("Image Selected");
 	}
 	public void enterAudio () throws Exception {
-		MediaFile("C:\\Users\\dmarroquin\\Videos\\example.m4a");
+		MediaFile("C:\\Users\\dmarroquin\\Videos\\example.aac");
+	}
+	
+	public void enterWrongImage () throws Exception {
+		MediaFile("C:\\Users\\dmarroquin\\Pictures\\Camera Roll\\large.bmp");
 	}
 	
 	public void enterThumbAudio () throws Exception {
@@ -57,7 +63,7 @@ public class UploadMedia {
 	}
 
 	public void enterVideoBack () throws Exception {
-		MediaFile("C:\\Users\\dmarroquin\\Videos\\SampleVideo_320x240_30mb.3gp");
+		MediaFile("C:\\Users\\dmarroquin\\Videos\\Shaman King Capitulo 35 Audio Latino.3g2");
 	}
 	public void enterDocument () throws Exception {
 		MediaFile("C:\\Users\\dmarroquin\\Documents\\Plan Base 2016.pdf");
