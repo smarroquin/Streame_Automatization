@@ -512,7 +512,7 @@ public class UploadMediaTest extends Setup{
 	   Upload.enterWrongImage();
 	   Thread.sleep(1000);
 	   assertTrue(HomePage.isElementPresent(By.xpath("//upload-box/div/div[3]")));
-	   assertEquals(driver.findElement(By.xpath("//upload-box/div/div[3]")).getText(), "Invalid media type");
+	   assertEquals(driver.findElement(By.xpath("//upload-box/div/div[3]")).getText(), "Invalid Media Type");
    }
    
    @Test(priority=11)
