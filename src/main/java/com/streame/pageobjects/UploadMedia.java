@@ -24,7 +24,7 @@ public class UploadMedia {
 	public By Audience = By.cssSelector("div.upload-form__switch-slider");
     public By Type= By.xpath("//div[7]/div/label");
     public By SaveButton=By.xpath("//button[@type='submit']");
-    public By Kinput= By.xpath("//chips[@id='upload-keywords']/div/input");
+    public By Kinput= By.xpath("//chips-columns[@id='upload-keywords']/div/input");
     public By Iinput= By.xpath("//chips[@id='upload-invitation']/div/input");
     
     

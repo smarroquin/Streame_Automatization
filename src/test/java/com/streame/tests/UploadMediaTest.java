@@ -52,7 +52,7 @@ public class UploadMediaTest extends Setup{
 	    Thread.sleep(1000);
 	    Upload.enterImage();
 	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.status-overlay__content > span")));
-	    Thread.sleep(5000);
+	    Thread.sleep(6000);
 	    assertEquals(driver.findElement(By.cssSelector("div.status-overlay__content > span")).getText(), "Image File Uploaded");
 	    assertEquals(driver.findElement(By.cssSelector("span.metadata-preview-content__key")).getText(), "File Name:");
 	    assertEquals(driver.findElement(By.cssSelector("p.metadata-preview__info > span.metadata-preview-content__key")).getText(), "Size:");
@@ -130,6 +130,8 @@ public class UploadMediaTest extends Setup{
 
 	@Test(priority=2)
 	public void UploadValidations() throws Exception {
+	    WebElement problematicElement= driver.findElement(By.xpath("//form"));
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
 		driver.findElement(Upload.Title).clear();
 	    driver.findElement(Upload.Title).sendKeys("11/");
 	    Thread.sleep(1000);
@@ -160,61 +162,48 @@ public class UploadMediaTest extends Setup{
 	    //Genre
 	    assertTrue(HomePage.isElementPresent(Upload.Genre));
 	    assertEquals(driver.findElement(Upload.Genre).getText(), "Genres");
+        js.executeScript("scroll(0, 250);");
 	    //Keywords
 	    driver.findElement(Upload.Keywords).click();
+	    assertTrue(HomePage.isElementPresent(By.xpath("//chips-columns[@id='upload-keywords']/div/input")));
+	    assertTrue(HomePage.isElementPresent(By.xpath("//div[6]/chips-columns/div/div[2]/infinite-scroll/div/div/span/span")));
    	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
-	    driver.findElement(Upload.Kinput).click();
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-2")).click();
-	    driver.findElement(Upload.Kinput).click();
-	    driver.findElement(Upload.Kinput).clear();
-	    driver.findElement(Upload.Kinput).sendKeys("Test");
-	    Thread.sleep(1000);
-	    //driver.findElement(Upload.Kinput).sendKeys(Keys.ENTER);
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
-	    driver.findElement(Upload.Kinput).click();
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-1")).click();
-	    driver.findElement(Upload.Kinput).click();
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-3")).click();
-	    driver.findElement(Upload.Kinput).click();
-	    Thread.sleep(1000);
-	    driver.findElement(Upload.Kinput).clear();
-	    driver.findElement(Upload.Kinput).sendKeys("Drama");
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
-	    driver.findElement(Upload.Kinput).clear();
-	    driver.findElement(Upload.Kinput).sendKeys("Comics");
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
-	    driver.findElement(Upload.Kinput).clear();
-	    driver.findElement(Upload.Kinput).sendKeys("Mangas");
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
-	    driver.findElement(Upload.Kinput).clear();
-	    driver.findElement(Upload.Kinput).sendKeys("Blood");
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
-	    driver.findElement(Upload.Kinput).clear();
-	    driver.findElement(Upload.Kinput).sendKeys("Sunny");
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
-	    driver.findElement(Upload.Kinput).clear();
-	    driver.findElement(Upload.Kinput).sendKeys("Rainy");
-	    Thread.sleep(1000);
-	    driver.findElement(By.id("ngb-typeahead-1-0")).click();
-	    Thread.sleep(1000);
+   	 driver.findElement(By.xpath("//div[6]/chips-columns/div/div[2]/infinite-scroll/div/div/span/span")).click();
+   	 driver.findElement(By.xpath("//div[6]/chips-columns/div/div[2]/infinite-scroll/div/div[4]/span/span")).click();
+     driver.findElement(By.xpath("//div[6]/chips-columns/div/div[2]/infinite-scroll/div/div[7]/span/span")).click();
+     driver.findElement(By.xpath("//div[6]/chips-columns/div/div[2]/infinite-scroll/div/div[2]/span/span")).click();
+     driver.findElement(By.xpath("//div[6]/chips-columns/div/div[2]/infinite-scroll/div/div[5]/span/span")).click();
+     driver.findElement(By.xpath("//div[6]/chips-columns/div/div[2]/infinite-scroll/div/div[3]/span/span")).click();
+     driver.findElement(By.xpath("//div[6]/chips-columns/div/div[2]/infinite-scroll/div/div[6]/span/span")).click();
+     assertTrue(HomePage.isElementPresent(Upload.Kinput));
+     driver.findElement(Upload.Kinput).clear();
+     driver.findElement(Upload.Kinput).sendKeys("Drama");
+     Thread.sleep(1000);
+     assertTrue(HomePage.isElementPresent(By.xpath("//chips-columns[@id='upload-keywords']/div/div[2]/infinite-scroll/div/div/span/span[2]")));
+     driver.findElement(By.xpath("//chips-columns[@id='upload-keywords']/div/div[2]/infinite-scroll/div/div/span/span[2]")).click();
+     Thread.sleep(1000);
+     driver.findElement(Upload.Kinput).clear();
+     driver.findElement(Upload.Kinput).sendKeys("");
+     Thread.sleep(1000);
+     driver.findElement(Upload.Kinput).clear();
+     driver.findElement(Upload.Kinput).sendKeys("Rainy");
+     Thread.sleep(1000);
+     driver.findElement(By.xpath("//chips-columns[@id='upload-keywords']/div/div[2]/infinite-scroll/div/div/span/span[2]")).click();
+     driver.findElement(Upload.Kinput).clear();
+     driver.findElement(Upload.Kinput).sendKeys("Rainys");
+     Thread.sleep(1000);
+     driver.findElement(By.xpath("//chips-columns[@id='upload-keywords']/div/div[2]/infinite-scroll/div/div/span/span[2]")).click();
+     driver.findElement(Upload.Kinput).clear();
+     driver.findElement(Upload.Kinput).sendKeys("Rainyss");
+     Thread.sleep(1000);
+     driver.findElement(By.xpath("//chips-columns[@id='upload-keywords']/div/div[2]/infinite-scroll/div/div/span/span[2]")).click();
+     Thread.sleep(1000);
 	    assertTrue(HomePage.isElementPresent(By.xpath("//form/div[6]/div")));
 	    assertEquals(driver.findElement(By.xpath("//form/div[6]/div")).getText(), "Only 10 Keywords Can Be Selected");
 	    Thread.sleep(1000);
 	    // Invitation x completar
 	   /* driver.findElement(By.xpath("//label[3]")).click();
 	    Thread.sleep(1000);*/
-	    WebElement problematicElement= driver.findElement(By.xpath("//form"));
-	    JavascriptExecutor js = (JavascriptExecutor)driver;
 	    js.executeScript("arguments[0].scrollIntoView()", problematicElement);
 	    Thread.sleep(1000);
 	   /* 
@@ -520,11 +509,16 @@ public class UploadMediaTest extends Setup{
 	    driver.findElement(Upload.MediaButton).click();
 	    Upload.enterImage();
 	    Thread.sleep(1000);
+	    driver.findElement(Upload.ThumbnailButton).click();
+	    Thread.sleep(500);
+	    Upload.enterImage();
+	    Upload.Cropper();
+	    Thread.sleep(1000);
 	    driver.findElement(Upload.Title).clear();
 	    driver.findElement(Upload.Title).sendKeys("Superman");
-	    Thread.sleep(1000);
-	    assertTrue(HomePage.isElementPresent(By.xpath("//form/div/div")));
-	    assertEquals(driver.findElement(By.xpath("//form/div/div")).getText(), "A Image Of The Same Name Already Exists");
+	    driver.findElement(By.xpath("//textarea[@id='upload-description']")).click();
+	    assertTrue(HomePage.isElementPresent(By.cssSelector("div.alert.alert-danger")));
+	    assertEquals(driver.findElement(By.cssSelector("div.alert.alert-danger")).getText(), "A Image Of The Same Name Already Exists");
   }
    
 }
